@@ -1,0 +1,71 @@
+<div class="box box-info" style="border:0px;">
+    <div class="box-header">
+        <h3 class="box-title">设置角色权限</h3>
+        <i style="cursor:pointer" class="fa fa-close pull-right" ng-click="cancel()"></i>
+    </div>
+    <div class="box-body">
+        <div class="col-md-8 col-md-offset-2">
+            <aside class="main-sidebar" style="position: relative; min-width:450px;padding-top: 10px">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu">
+                        <li class="header">
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <div class="checkbox pull-right" style="color:white">
+                                        <label>
+                                            <input type="checkbox" ng-model="isAllChecked"
+                                                   ng-change="checkAllPer(menus)">全选
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li ng-repeat="root in menus" class="treeview active" ng-click="$event.stopPropagation()">
+                            <a href="javascript:void(0)">
+                                <i class="{{root.icon}}"></i>
+                                <span ng-bind="root.name"></span>
+                                <i class="fa fa-angle-left"></i>
+
+                                <div class="inline col-md-6 checkbox"
+                                     style="position:absolute;right: 10px; margin: 0px">
+                                    <label ng-repeat="per in root.permissions">
+                                        <input type="checkbox" ng-change="check(per)" ng-model="per.checked">
+                                        {{per.name}}
+                                    </label>
+                                </div>
+                            </a>
+
+
+                            <ul ng-if="root.hasChild" class="treeview-menu menu-open">
+                                <li ng-repeat="item in root.children track by $index">
+                                    <a href="javascript:void(0)">
+                                        <i class="{{item.icon}}"></i> <span ng-bind="item.name"></span>
+
+                                        <div class="inline col-md-6 checkbox"
+                                             style="position:absolute;right: 10px; margin: 0px">
+                                            <label ng-repeat="per in item.permissions">
+                                                <input type="checkbox" ng-change="check(per)" ng-model="per.checked">{{per.name}}
+                                            </label>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+        </div>
+    </div>
+    <div class="box-footer text-center">
+        <button type="button" class="btn btn-success" ng-click="submit()">
+            <i class="fa fa-check"> </i> 保存
+        </button>
+        <button type="button" class="btn bg-navy" ng-click="cancel()">
+            <i class="fa fa-close"> </i> 关闭
+        </button>
+    </div>
+</div>

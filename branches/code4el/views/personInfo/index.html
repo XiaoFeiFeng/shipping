@@ -1,0 +1,86 @@
+<div class="myel" ng-controller="personInfoIndexCtrl">
+    <div class="nav-title">
+        所在位置 - <a href="#/myel/index" class="font-orange">我的易联</a> - 个人信息
+    </div>
+    <div class="row mt-20 font-13">
+        <div class="col-md-2">
+            <hls-include url="'views/myel/menu.html'"/>
+        </div>
+        <div class="col-md-8 col-md-offset-1 ml-20 font-13">
+            <form>
+                <div class="row form-group pt-5">
+                    <label class="col-md-3 control-label register-label">用户名:</label>
+                    <label class="control-label col-md-5 pt-5">
+                        <span class="font-red" ng-bind="user.name"></span>
+                    </label>
+                </div>
+                <div class="row form-group pt-5">
+                    <label class="col-md-3 control-label register-label">昵称:</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" ng-model="user.nickname">
+                    </div>
+                </div>
+                <div class="row form-group pt-5">
+                    <label class="col-md-3 control-label register-label">真实姓名:</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" ng-model="user.realname">
+                    </div>
+                </div>
+                <div class="row form-group pt-5">
+                    <label class="col-md-3 control-label register-label">邮箱:</label>
+                    <label class="control-label col-md-3 pt-5">
+                        <span class="font-blue" ng-bind="user.email"></span>
+                    </label>
+                    <div class="col-md-4 mt-10" ng-if="!user.emailchecked">
+                        <span class="font-gray">未验证</span>
+                        <a href="#/safety/emailVerify" class="font-orange">[验证]</a>
+                    </div>
+                    <div class="col-md-4 mt-10" ng-if="user.emailchecked">
+                        <span class="font-gray">已验证</span>
+                        <a href="#/safety/emailVerify" class="font-orange">[修改]</a>
+                    </div>
+                </div>
+                <div class="row form-group pt-5">
+                    <label class="col-md-3 control-label register-label">手机号码:</label>
+                    <label class="control-label col-md-3 pt-5">
+                        <span class="font-blue" ng-bind="user.telephone"></span>
+                    </label>
+                    <div class="col-md-4 mt-10" ng-if="!user.telchecked">
+                        <span class="font-gray">未验证</span>
+                        <a href="#/safety/telVerify" class="font-orange">[验证]</a>
+                    </div>
+                    <div class="col-md-4 mt-10" ng-if="user.telchecked">
+                        <span class="font-gray">已验证</span>
+                        <a href="#/safety/telVerify" class="font-orange">[修改]</a>
+                    </div>
+                </div>
+                <div class="row form-group pt-5">
+                    <label class="col-md-3 control-label register-label">所在地区:</label>
+                    <div class="col-md-5">
+                        <city-select ng-model="city"></city-select>
+                    </div>
+                </div>
+                <div class="row form-group pt-5">
+                    <label class="col-md-3 control-label register-label">生日:</label>
+                    <div class="col-md-5">
+                        <hls-datetimepicker select-model="user.brithday"></hls-datetimepicker>
+                    </div>
+                </div>
+                <div class="row form-group pt-5">
+                    <label class="col-md-3 control-label register-label">性别:</label>
+                    <div class="col-md-5">
+                        <input type="radio" name="sex" ng-model="user.gender" value="1">男&emsp;
+                        <input type="radio" name="sex" ng-model="user.gender" value="0">女&emsp;
+                        <input type="radio" name="sex" ng-model="user.gender" value="2">保密&emsp;
+                    </div>
+                </div>
+                <div class="row form-group pt-5">
+                    <div class="col-md-offset-3 col-md-8">
+                        <button type="submit" class="col-md-3 btn btn-info" ng-click="submit()">保存</button>
+                        <button type="reset" class="col-md-3 btn btn-default ml-20">清空</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

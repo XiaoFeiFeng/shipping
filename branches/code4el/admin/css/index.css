@@ -1,0 +1,26 @@
+body, html {
+    font-family: SimHei;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: black;
+    text-underline: none;
+}
+
+.yilian {
+    width: 180px;
+    height: 55px;
+    margin: 10px;
+}
+.ml-20{margin-left:20px;}
+th, td {padding: 8px!important;}
+
+
+
+
+
+

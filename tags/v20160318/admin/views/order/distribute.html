@@ -1,0 +1,11 @@
+<div class="box border-0" ng-controller="orderDistributeCtrl">
+    <div class="box-header">
+    </div>
+    <div class="box-body">
+        <hls-grid grid-options="gridOptions"></hls-grid>
+    </div>
+    <div class="box-footer">
+        <hls-pagination total-items="totalItems" ng-model="currentPage" class="pagination-sm"
+                        page-size="pageSize" ng-change="pageChange()"></hls-pagination>
+    </div>
+</div>

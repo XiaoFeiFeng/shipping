@@ -1,0 +1,98 @@
+
+
+<div class="box box-info">
+    <div class="box-header with-border">
+        <h3 class="box-title">容器详细</h3>
+        <i style="cursor:pointer" class="fa fa-close pull-right" ng-click="cancel()"></i>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+        <div class="box-body">
+
+
+
+            <!--容器详情-->
+            <dl class="dl-horizontal">
+                <dt>容器ID</dt>
+                <dd>{{container.containerId}}</dd>
+                <dt>容器名称</dt>
+                <dd>{{container.containerName}}</dd>
+                <dt>端口详情</dt>
+                <dd>80端口 ： {{container.port_80}}</dd>
+                <dd>27017端口：{{container.port_27017}}</dd>
+                <dt>容器过期时间</dt>
+                <dd>{{container.expirationTime}}</dd>
+
+            </dl>
+
+
+
+
+
+            <div>
+
+                <section class="content-header">
+                    <h3>消费记录</h3>
+
+                </section>
+                <section class="content">
+                    <!--消费记录-->
+                    <table class="table table-hover">
+
+                        <tr>
+                            <td>订单号</td>
+                            <td>月数</td>
+                            <td>总金额</td>
+                            <td>订单时间</td>
+                            <td>付款状态</td>
+                        </tr>
+
+
+                        <tr ng-repeat="item in qbData">
+                            <td>{{item.order_no}}</td>
+                            <td>{{item.month}}</td>
+                            <td>{{item.total_price}}</td>
+                            <td>{{item.time*1000 | date:'yyyy-MM-dd HH:mm:ss' }}</td>
+                            <td> <span ng-if="item.pay_status == 1">付款成功</span></td>
+                        </tr>
+
+
+
+                    </table>
+                </section>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer text-center">
+            <button type="button" class="btn btn-success" ng-disabled="addorUserForm.$invalid"
+                    ng-click="submitForm()">
+                <i class="fa fa-check"> </i> 保存
+            </button>
+            <button type="button" class="btn bg-purple" ng-click="reset()">
+                <i class="fa fa-mail-reply"> </i> 重置
+            </button>
+            <button type="button" class="btn bg-navy" ng-click="cancel()">
+                <i class="fa fa-close"> </i> 关闭
+            </button>
+        </div>
+        <!-- /.box-footer -->
+</div>

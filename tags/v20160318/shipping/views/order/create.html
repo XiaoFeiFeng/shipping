@@ -1,0 +1,139 @@
+<div class="container" ng-controller="orderCreateCtrl">
+    <div class="row text-center">
+        <div class="order-c-info">
+            <div class="row border-ccc">
+                <table width="100%">
+                    <thead class="hls-box">
+                    <th class="pl-15">起运城市</th>
+                    <th>目的国家</th>
+                    <th>运输渠道</th>
+                    <th>预估时间</th>
+                    <th>重量（KG）</th>
+                    <th>价格</th>
+                    </thead>
+                    <tbody>
+                    <tr class="text-left border-top-ccc">
+                        <td class="pl-15" ng-bind="order.fromCity"></td>
+                        <td class="" ng-bind="order.country.Name"></td>
+                        <td class="" ng-bind="order.transportWayCName"></td>
+                        <td class="" ng-bind="order.deliveryPeriod?order.deliveryPeriod:'无'"></td>
+                        <td class="" ng-bind="order.weight">0.5</td>
+                        <td class="font-red" ng-bind="order.sum?'￥'+order.sum:'无'"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <form name="orderCreateForm" id="orderCreateForm">
+                <div class="row border-ccc border-t0">
+                    <div class="col-md-6 border-right-ccc form-horizontal text-right">
+                        <div class="text-left pv-5">
+                            <label class="control-label">寄件人信息</label>
+                        </div>
+                        <!--<div class="container-fluid form-horizontal">-->
+                        <div class="row pv-5">
+                            <div class="col-md-3 control-label">
+                                <small class="font-red">*</small>
+                                联系人
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" id="fromName" name="fromName" class="form-control"
+                                       ng-model="from.name"
+                                       placeholder="寄件人姓名" required requiredmsg="请输入寄件人姓名" dir-directive-ext>
+                            </div>
+                        </div>
+                        <div class="row pv-5">
+                            <div class="col-md-3 control-label">
+                                <i class="font-red">* </i>联系电话
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" id="fromTel" name="fromTel" class="form-control"
+                                       ng-model="from.tel"
+                                       placeholder="寄件人联系电话" required requiredmsg="请输入联系电话" dir-directive-ext/>
+                            </div>
+                        </div>
+
+                        <div class="row pv-5">
+                            <div class="col-md-3 control-label">
+                                <i class="font-red">* </i>详细地址
+                            </div>
+                            <div class="col-md-9">
+                            <textarea id="fromAddress" name="fromAddress" style="resize: none;" ng-model="from.address"
+                                      class="form-control" required requiredmsg="请输入寄件人地址" dir-directive-ext></textarea>
+                            </div>
+                        </div>
+                        <div class="row pv-5">
+                            <div class="col-md-3 control-label">
+                                <i class="font-red">* </i>邮编
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" id="fromCode" name="fromCode" class="form-control"
+                                       ng-model="from.zip"
+                                       required requiredmsg="请输入邮政编码" dir-directive-ext/>
+                            </div>
+                        </div>
+                        <div class="row pv-10">
+                            <div class="col-md-9 col-md-offset-3 text-left">
+                                <button type="button" class="btn btn-link font-11 font-orange"
+                                        ng-click="chooseAddress('from')">
+                                    <span>常用地址</span>
+                                    <i class="fa fa-angle-double-down"> </i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-horizontal text-right">
+                        <div class="text-left pv-5">
+                            <label class="control-label">收件人信息</label>
+                        </div>
+                        <!--<div class="container-fluid form-horizontal">-->
+                        <div class="row pv-5">
+                            <div class="control-label col-md-3">
+                                <i class="font-red">* </i>联系人
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" name="toName" class="form-control" ng-model="to.name"
+                                       placeholder="收件人姓名" required requiredmsg="请输入收件人姓名" dir-directive-ext/>
+                            </div>
+                        </div>
+                        <div class="row pv-5">
+                            <div class="col-md-3 control-label">
+                                <i class="font-red">* </i>联系电话
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" name="toTel" class="form-control" ng-model="to.tel"
+                                       placeholder="收件人联系电话"
+                                       required requiredmsg="请输入收件人联系电话" dir-directive-ext/>
+                            </div>
+                        </div>
+                        <div class="row pv-5">
+                            <div class="col-md-3 control-label">
+                                <i class="font-red">* </i>详细地址
+                            </div>
+                            <div class="col-md-9">
+                            <textarea name="toAddress" style="resize: none;" class="form-control"
+                                      ng-model="to.address" required requiredmsg="请输入收件人地址"
+                                      dir-directive-ext></textarea>
+                            </div>
+                        </div>
+                        <div class="row pv-5">
+                            <div class="col-md-3 control-label">
+                                <i class="font-red">* </i>邮编
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" name="toZip" id="toZip" class="form-control" ng-model="to.zip"
+                                       required requiredmsg="请输入邮政编码" dir-directive-ext/>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row text-right pv-15">
+                    <button type="submit" class="btn btn-warning btn-lg"
+                            ng-click="submitForm(orderCreateForm.$invalid)">
+                        <span>提交订单</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

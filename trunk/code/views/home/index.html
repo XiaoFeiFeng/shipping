@@ -1,0 +1,72 @@
+<div ng-controller="homeIndexCtrl">
+    <div class="row ">
+        <img class="img-responsive" src="../../img/banner.jpg">
+    </div>
+    <div class="row text-center">
+        <div class="container">
+            <div class="col-md-12 no-padding">
+                <div class="col-md-12 home-search">
+                    <div class="input-group ">
+                        <span class="input-group-addon">目的地</span>
+                        <hls-country hls-data="countryData" hls-class="form-control input-lg"
+                                     hls-placeholder="请选择目的地，例如：美国"></hls-country>
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-warning" ng-click="">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                <span class="font-16"> 查价下单</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table text-left border-0 ">
+                            <tr class="x-tr">
+                                <th colspan="2">新闻资讯</th>
+                            </tr>
+                            <tr class="new_bg font-13 content" ng-repeat="item in items.data"
+                                ng-click="new_details(item._id.$id)">
+                                <td width="60%" class="content"><span ng-bind="item.title"></span>
+                                    <br>
+                                    <span class="font-gray" ng-bind="getDate(item.created_time)"></span>
+                                </td>
+                            </tr>
+                        </table>
+                        <a class="btn btn-info" href="#/news/index">
+                            <span>查看更多</span>
+                        </a>
+                    </div>
+                    <div class="col-md-12 pv-15">
+                        <textarea class="input-lg" rows="5" style="width: 100%; resize: none"
+                                  placeholder="输入运单号查询"></textarea>
+                    </div>
+                    <div class="col-md-12 text-right">
+                        <button class="btn btn-info">
+                            <span class="ph-10">清除</span>
+                        </button>
+                        <button class="btn btn-warning">
+                            <span class="ph-10">查询</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="col-md-4 pv-10" ng-repeat="news in imgNews" ng-click="new_details(news._id.$id)">
+                    <img ng-src="{{news.img}}" class="img-responsive" style="height:145px;">
+
+                    <small class="font-14" ng-bind="news.title"></small>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+     
+    

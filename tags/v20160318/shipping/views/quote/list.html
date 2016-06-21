@@ -1,0 +1,134 @@
+<div class="container" ng-controller="quoteListCtrl">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-condensed text-left">
+                <tbody>
+                <tr>
+                    <td style="min-width:100px">
+                        <label class="pt-5">您已选择：</label>
+                    </td>
+                    <td colspan="3">
+                        <div class="hls-label"
+                             ng-repeat="item in filter" ng-if="item.isShow" ng-click="filterClick(item)">
+                            <span ng-bind="item.disKey + item.name"></span>
+                            &nbsp; <span>&times;</span>
+                        </div>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <!--<td><label>起运城市：</label></td>-->
+                    <!--<td>-->
+                    <!--<hls-city hls-data="cityData" hls-class="form-control"-->
+                    <!--hls-placeholder="请选择出发地，例如：深圳市"></hls-city>-->
+                    <!--</td>-->
+                    <td class="quotetd"><label class="pt-5">目的国家：</label></td>
+                    <td>
+                        <hls-country hls-data="countryData" hls-class="form-control"
+                                     hls-placeholder="请选择出发地，例如：美国"></hls-country>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="quotetd">
+                        <label class="pt-5">重量(KG)：</label>
+                    </td>
+                    <td>
+                        <input class="form-control" ng-model="weight" ng-change="weightChange()"/>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <!--<tr>-->
+                <!--<td class="quotetd"><label>物品种类：</label></td>-->
+                <!--<td colspan="3">-->
+                <!--<button ng-repeat="item in resTypes" type="button" ng-class="{'hls-btnactive':item.isActive}"-->
+                <!--class="btn btn-link" ng-click="resTypeChange(item)">-->
+                <!--<span ng-bind="item.name"></span>-->
+                <!--</button>-->
+                <!--</td>-->
+                <!--</tr>-->
+                <tr>
+                    <td class="quotetd"><label class="pt-5">运输类型：</label></td>
+                    <td colspan="3">
+                        <button ng-repeat="item in transTypes track by $index" type="button"
+                                ng-class="{'hls-btnactive':item.isActive}"
+                                class="btn btn-link" ng-click="transTypeChange(item,'transtype')">
+                            <span ng-bind="item.name"></span>
+                        </button>
+                    </td>
+                </tr>
+                <tr ng-show="transWays.length>0">
+                    <td class="quotetd"><label class="pt-5">运输方式：</label></td>
+                    <td colspan="3">
+                        <button ng-repeat="item in transWays" type="button" ng-class="{'hls-btnactive':item.isActive}"
+                                class="btn btn-link" ng-click="transWayChange(item)">
+                            <span ng-bind="item.name"></span>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="text-center">
+                        <button type="button" class="btn btn-warning" ng-click="getFee('button')">
+                            <span class="font-22 ph-10">查价</span>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <br/>
+            <table class="table table-hover table-striped table-condensed text-left">
+                <caption>排序：
+                    <div class="btn-group">
+                        <button ng-if="priceDesc" class="btn btn-link" type="button" ng-click="dataSort(true)">
+                            <em class="glyphicon glyphicon-arrow-down"></em>
+                            价格
+                        </button>
+                        <button ng-if="!priceDesc" class="btn btn-link" type="button"
+                                ng-click="dataSort(false)">
+                            <em class="glyphicon glyphicon-arrow-up"></em>
+                            价格
+                        </button>
+                    </div>
+                </caption>
+                <thead>
+                <tr class="hls-box">
+                    <th>渠道代码 <span class="icon-arrow-down"> </span></th>
+                    <th>渠道名称</th>
+                    <th>目的地</th>
+                    <th>时长</th>
+                    <th>重量</th>
+                    <th>价格</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in feeResult">
+                    <td><span ng-bind="item.transportWayCode"></span></td>
+                    <td><span ng-bind="item.transportWayCName"></span></td>
+                    <td><span ng-bind="outCountry"></span></td>
+                    <td><span ng-bind="item.deliveryPeriod"></span></td>
+                    <td><span ng-bind="resultWeight+'KG'"></span></td>
+                    <td><span class="font-red" ng-bind="'￥ '+item.sum"></span></td>
+                    <td>
+                        <button type="button" class="btn btn-hls">
+                            详情
+                        </button>
+                        <button type="button" class="btn btn-warning" ng-click="createOrder(item)">
+                            下单
+                        </button>
+                    </td>
+                </tr>
+                <tr ng-if="FeeHasError">
+                    <td class="text-center" colspan="7">
+                        <h3><span ng-bind="FeeError"></span></h3>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <br/>
+        </div>
+    </div>
+</div>

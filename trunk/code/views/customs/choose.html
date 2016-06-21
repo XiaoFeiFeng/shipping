@@ -1,0 +1,47 @@
+<div class="container" style="width: 100%">
+    <div class="row">
+        <div class="col-md-12 text-center pv-15">
+            <span><b>常用地址</b></span>
+            <i class="fa fa-close pull-right cursor-hand" ng-click="cancel()"></i>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-hover">
+                <tr class="cursor-hand font-13" ng-repeat="item in user.customs track by $index"
+                    ng-click="check($index)">
+                    <td>
+                        <div class="input-group">
+                            <div class="ph-15 pv-5" ng-class="{'address-check':item.checked}">
+                                <span ng-bind="item.chineseName"></span>
+                            </div>
+                            <img ng-if="item.checked" style="position:absolute; bottom: 0px;right: 0px"
+                                 src="../../img/12.png"/>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="padding-5">
+                            <span ng-bind="item.englishName"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="padding-5">
+                            <span ng-bind="item.goodsType"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="padding-5">
+                            <span ng-bind="item.remark"></span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row mv-15">
+        <div class="col-md-12 text-center">
+            <button type="button" class="btn btn-warning" ng-click="submit()">确定</button>
+            <button type="button" class="btn btn-warning" ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>

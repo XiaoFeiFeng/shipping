@@ -1,0 +1,37 @@
+<div class="padding-30" ng-controller="expressIndexCtrl">
+    <div class="text-center"><h3>国内外快递查询</h3></div>
+    <div>
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">所有快递</a></li>
+            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">国外快递</a></li>
+            <li role="presentation"><a href="#hot" aria-controls="profile" role="tab" data-toggle="tab">热门快递</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpane" class="tab-pane active clearfix" id="home">
+                <div class="express" ng-repeat="result in item1" ng-click="checked(result)" >
+                    <img ng-if="result.img" ng-src="{{result.img}}" width="20" height="20">
+                    <span ng-bind="result.name"></span>
+                </div>
+
+            </div>
+            <div role="tabpane" class="tab-pane clearfix" id="profile" >
+                <div class="express" ng-repeat="result in item2" ng-click="checked(result)" style="width:200px;">
+                    <img ng-if="result.img" ng-src="{{result.img}}" width="20" height="20">
+                    <span ng-bind="result.name"></span>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane clearfix" id="hot" >
+                <div class="express" ng-repeat="result in item3" ng-click="checked(result  )">
+                    <img ng-if="result.img" ng-src="{{result.img}}" width="20" height="20">
+                    <span ng-bind="result.name"></span>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

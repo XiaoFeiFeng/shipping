@@ -1,0 +1,51 @@
+<div class="container" ng-controller="articleEditCtrl">
+    <div class="row col-md-11 col-md-offset-1">
+        <a href=#/article/index class="btn btn-primary">
+            <i class="fa fa-mail-reply"></i> 返回列表
+        </a>
+    </div>
+    <br/><br/>
+    <hr>
+    <form class="form-horizontal" name="addorChannelForm">
+
+        <div class="form-group">
+            <label class="col-md-2 control-label">上传封面</label>
+            <div class="col-md-8">
+                <hls-upload hls-option="hlsOption"></hls-upload>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="title" class="col-md-2 control-label">封面图片</label>
+            <div class="col-md-8 mt-5">
+                {{news.img}}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="title" class="col-md-2 control-label">文章标题</label>
+            <div class="col-sm-8">
+                <input type="input" class="form-control" id="title" name="title" placeholder="请输入文章标题" required
+                       ng-model="news.title" requiredmsg="请输入文章标题" dir-directive-ext>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-2 control-label">文章内容</label>
+            <div class="col-sm-8">
+                <div class="ueditor" ng-model="news.content"></div>
+            </div>
+        </div>
+
+
+        <div class="text-center mt-30">
+            <button type="button" class="btn btn-info"
+                    ng-click="submitForm(addorChannelForm.$invalid)">
+                <i class="fa fa-check"> </i> 保存
+            </button>
+            <button type="reset" class="btn btn-default ml-30">
+                <i class="fa fa-repeat"> </i> 重置
+            </button>
+        </div>
+
+    </form>
+</div>

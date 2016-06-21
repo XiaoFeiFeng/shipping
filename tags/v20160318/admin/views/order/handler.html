@@ -1,0 +1,50 @@
+<div class="box border-0">
+    <div class="box-header with-border">
+        <h3 class="box-title">选择加盟商</h3>
+        <i class="fa fa-close cursor-hand pull-right" ng-click="cancel()"></i>
+    </div>
+    <div class="box-body">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <tbody>
+                    <tr ng-repeat="merchant in merchants track by $index">
+                        <td>
+                            <div class="row from-group">
+                                <input class="col-md-1 from-control cursor-hand" type="radio" name="merchantSelect"
+                                       id="merchant{{$index}}" value="{{merchant}}">
+                                <label class="col-md-11 font-normal cursor-hand" for="merchant{{$index}}">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <span ng-bind="getName(merchant)"></span></div>
+                                        <div class="col-md-3">
+                                            <small ng-bind="merchant.telephone"></small>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span ng-bind="getAddress(merchant)"></span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row mv-10">
+            <hls-pagination total-items="totalItems" ng-model="currentPage" class="pagination-sm"
+                            page-size="pageSize" ng-change="pageChange()"></hls-pagination>
+        </div>
+    </div>
+
+
+    <div class="box-footer text-center">
+        <button type="button" class="btn btn-success" ng-click="handler()">
+            <i class="fa fa-check"> </i> 派单
+        </button>
+        <button type="button" class="btn bg-navy" ng-click="cancel()">
+            <i class="fa fa-close"> </i> 关闭
+        </button>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="row" ng-controller="merchantsPersonalCtrl">
+    <div class="row mh-15">
+        <div class="col-md-8 col-md-offset-2">
+            <h4><b>申请成为物流商，加入物流商盟</b></h4>
+            <form class="container-fluid" name="personalForm">
+                <table width="100%">
+                    <tr>
+                        <td width="25%">
+                            <span class="font-red">*</span>申请人:
+                        </td>
+                        <td width="75%">
+                            <input type="text" class="form-control" ng-model="merchant.name"
+                                   dir-directive-ext>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="font-red">*</span>联系电话:</td>
+                        <td>
+                            <input type="text" class="form-control" ng-model="merchant.telephone"
+                                   required dir-directive-ext>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="font-red">*</span>所在区域:</td>
+                        <td>
+                            <city-select ng-model="merchant.district"></city-select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="font-red">*</span>地址:</td>
+                        <td>
+                            <input type="text" class="form-control" ng-model="merchant.address"
+                                   required dir-directive-ext>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="font-red">*</span>上传证件::</td>
+                        <td>
+                            <input id="fileupload" name="upload[]" type="file" multiple>
+                            <p class="padding-15">
+                                <small>
+                                    文件最大不能超过2M，最多上传2个,如：身份证正反面.
+                                    <br>
+                                    支持.jpg、.jpeg、.png、格式
+                                </small>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+                <div class="row text-center padding-20">
+                    <button type="submit" class="btn btn-warning btn-lg" ng-click="apply(personalForm.$invalid)">立即申请
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

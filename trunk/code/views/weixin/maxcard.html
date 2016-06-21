@@ -1,0 +1,12 @@
+<div class="window-title clearfix">
+    <p class="title-font">请扫描下面的二维码进行登录</p>
+    <i class="fa fa-close title-close" ng-click="cancel()"></i>
+</div>
+<div class="count-down" ng-if="!chenggong">
+    倒计时 <span ng-bind="timerNum" class="font-red"></span> 秒后将自动关闭图片
+</div>
+<div style="height:200px;text-align:center;padding-top:10px;">
+    <img ng-src="{{img}}">
+
+
+</div>

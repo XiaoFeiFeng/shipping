@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>深圳市前海易联供应链有限公司</title>
+    <meta name="description" content=""/>
+    <meta name="keywords" content="贸易宝 进销存系统 ERP系统 Ebay进销存 速卖通订单ERP 速卖通进销存 Amazon进销存 企业进销存定制 ERP系统定制 CpowerSoft.COM"/>
+    <meta name="robots" content="index, follow"/>
+    <link rel="shortcut icon" href="img/yilian_logo.png">
+    <script data-main="app.js?ver=1.0.0.1" src="http://cdn.93myb.com/requirejs/require.js"></script>
+</head>
+<body class="index-body container-fluid" ng-controller="indexCtrl">
+<div class="container mv-10">
+    <div class="col-md-4 text-left"><a href="/#"> <img src="img/logo.png" class="logo"/> </a></div>
+    <div class="col-md-8 text-right">
+        <hls-include url="'views/home/top.html'"/>
+    </div>
+</div>
+<div class="row">
+    <hls-include url="'views/home/nav.html'"/>
+</div>
+
+<div class="popup">
+    <div id="popnav" class="popup-cont">
+        <div class="popup-box" ng-click="goConsult()">
+            <div class="glyphicon glyphicon-comment font-36 ml-15 mt-10 col"></div>
+            <div class="font-12 ml-5 mt-5 titles">在线咨询</div>
+        </div>
+
+        <div class="popup-box"
+             data-content="<div class='mr-10 erweima'><img src='img/yiliantongda.jpg' width=108 height=108></div>">
+            <div class="glyphicon glyphicon-qrcode font-36 ml-15 mt-10 col"></div>
+            <div class="font-12 mt-5 titles" style=" margin-left:12px;">扫一扫</div>
+        </div>
+
+        <div class="popup-box"
+             data-content="<div class='mr-10 cool'><span class='ml-25 font-14'>全国免费热线</span><p>400-0755-556</p><span class='font-12 ml-20 mt-10'>服务时间9:00-18:00</span></div>">
+            <div class="glyphicon glyphicon-phone-alt font-36 ml-15 mt-10 col"></div>
+            <div class="font-12 ml-5 mt-5 titles">联系客服</div>
+        </div>
+
+    </div>
+</div>
+
+<div class="row clearfix" ui-view></div>
+<div class="row clearfix hls-footer" style="background: #eeeeee;">
+    <hls-include url="'views/home/footer.html'"/>
+</div>
+</body>
+</html>

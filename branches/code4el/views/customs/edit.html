@@ -1,0 +1,74 @@
+<form name="addressValidateForm">
+    <div class="window-title clearfix">
+        <p class="title-font">报关信息</p>
+        <i class="fa fa-close title-close" ng-click="cancel()"></i>
+    </div>
+    <ul class="mt-20 consignee-info">
+        <li class="clearfix">
+            <div class="content-labar"><span class="font-red">*</span> 物品类型：</div>
+            <div class="content-input">
+                <input type="text" class="form-control"
+                       ng-model="user.goodsType"
+                       placeholder="请填写物品类型"
+                       required
+                       dir-directive-ext/>
+            </div>
+        </li>
+
+        <li class="clearfix">
+            <div class="content-labar"><span class="font-red">*</span> 英文名：</div>
+            <div class="content-input">
+                <input type="text" class="form-control"
+                       ng-model="user.englishName"
+                       placeholder="请填写英文名"
+                       required
+                       dir-directive-ext/>
+            </div>
+        </li>
+
+        <li class="clearfix">
+            <div class="content-labar"><span class="font-red">*</span> 中文名：</div>
+            <div class="content-input">
+                <input type="text" class="form-control"
+                       ng-model="user.chineseName"
+                       placeholder="请填写中文名"
+                       required
+                       dir-directive-ext/>
+            </div>
+        </li>
+        <li class="clearfix">
+            <div class="content-labar"> 海关编号：</div>
+            <div class="content-input">
+                <input type="text" class="form-control"
+                       ng-model="user.code"
+                       placeholder="公司海关编号"/>
+            </div>
+        </li>
+        <li class="clearfix">
+            <div class="content-labar"> 配货备注：</div>
+            <div class="content-textarea">
+            <textarea class="form-control" rows="3" style="resize: none"
+                      ng-model="user.remark"
+                      placeholder="请填写备注（这里可省略不写）"
+                      ng-maxlength="50"
+                      maxlengthmsg="最大长度为50"
+                      dir-directive-ext/>
+                </textarea>
+            </div>
+        </li>
+
+        <li class="clearfix">
+            <div class="content-labar height-35"></div>
+            <div class="content-input height-35">
+                <input type="checkbox" ng-model="user.is_default"> 设置为默认
+            </div>
+        </li>
+        <li class="clearfix mt-20">
+            <div class="content-labar"></div>
+            <div class="content-input">
+                <button class="btn btn-info col-md-4" ng-click="submit(addressValidateForm.$invalid)">添加</button>
+                <button class="btn btn-default col-md-4 ml-20" ng-click="cancel()">取消</button>
+            </div>
+        </li>
+    </ul>
+</form>

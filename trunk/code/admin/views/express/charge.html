@@ -1,0 +1,35 @@
+<div ng-controller="expressChargeCtrl">
+    <div  style="margin-top:50px;margin-left:25.8%;">
+        <input type="text" class="form-control col-md-6" ng-model="oid" style="width:498px!important;border-radius:4px;">&emsp;
+        <button class="btn btn-info" ng-click="query()">查询</button>
+    </div>
+    <div class="clearfix" style="margin-top:30px;width:580px;margin-left:25%;">
+        <div  ng-repeat="result in results  track by $index" class="express-result" ng-click="inquire(result.coding)">
+            <span ng-bind="result.companyName"></span>
+        </div>
+    </div>
+
+    <div ng-if="expressInfo"  style="margin:50px 30px;border-top:2px solid #ccc;">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th width="24%">时间</th>
+                <th width="60%">城市</th>
+                <th >状态</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="expressResult in expressResults track by $index">
+                <td ng-bind="expressResult.time"></td>
+                <td ng-bind="expressResult.context"></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div ng-if="noRecord" class="express-error">
+        <span class="fa fa-exclamation-circle error-logo"></span>&emsp;
+        <span class="error-info">此单号无记录，请核对快递公司名称和运单号码是否正确！</span>
+        <span class="fa fa-close error-close" ng-click="tooltip()"></span>
+    </div>
+</div>

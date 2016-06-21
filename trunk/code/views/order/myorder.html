@@ -1,0 +1,103 @@
+<div class="myel" ng-controller="orderMyOrderCtrl">
+    <div class="nav-title">
+        所在位置 - <a href="#/myel/index" class="font-orange">我的易联</a> - 我的订单
+    </div>
+    <div class="row mt-20 font-13">
+        <div class="col-md-2">
+            <hls-include url="'views/myel/menu.html'"/>
+        </div>
+        <div class="col-md-9 ml-20">
+            <div class="row ">
+                <div class="col-md-2">
+                    <select class="form-control" ng-change="intervalChange()" ng-model="interval">
+                        <option value="1">一个月内</option>
+                        <option value="3">三个月内</option>
+                        <option value="6">六个月内</option>
+                        <option value="12">一年内</option>
+                        <option value="0">全部时间</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mv-15">
+                <div class="col-md-8 btn-group" data-toggle="buttons">
+                    <label class="btn btn-tab ph-20 active" ng-click="findOrder()">
+                        <input type="radio" id="order_all" name="orderstate" value=""/>全部订单
+                    </label>
+                    <label class="btn btn-tab ph-20" ng-click="findOrder(0)">
+                        <input type="radio" id="order_obligation" name="orderstate" value="0"/>待付款
+                        <span class="font-red" ng-bind="'('+stateCount['0']+')'"></span>
+                    </label>
+                    <label class="btn btn-tab ph-20" ng-click="findOrder(1)">
+                        <input type="radio" id="order_nrcy" name="orderstate" value="1"/>待收货
+                        <span ng-bind="'('+stateCount['1']+')'"></span>
+                    </label>
+                    <label class="btn btn-tab ph-20" ng-click="findOrder(2)">
+                        <input type="radio" id="order_finish" name="orderstate" value="2"/>已完成
+                        <span ng-bind="'('+stateCount['2']+')'"></span>
+                    </label>
+                    <label class="btn btn-tab ph-20" ng-click="findOrder(-1)">
+                        <input type="radio" id="order_cancel" name="orderstate" value="-1"/>已取消
+                        <span ng-bind="'('+stateCount['-1']+')'"></span>
+                    </label>
+                </div>
+                <div class="col-md-4 text-right pt-5">
+                    <div class="input-group pull-right">
+                        <input type="text" class="form-control input-md" placeholder="输入订单号查询" ng-model="searchValue">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default btn-md" ng-click="search()">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-repeat="order in orders track by $index">
+                <div class="row no-margin border-ccc pv-5 bg-f5">
+                    <div class="col-md-2">
+                        <a href="javascript:void(0)" ng-click="openDetail(order)"
+                           class="font-orange">{{order.code}}</a>
+                    </div>
+                    <div class="col-md-3">
+                        <span class="font-gray font-12" ng-bind="getDate(order.created_time)"></span>
+                    </div>
+                    <div class="col-md-7">
+                        <span ng-bind="order.fromCity"></span>
+                        <i class="fa fa-long-arrow-right"> </i>
+                        <span ng-bind="order.toCountry"></span>
+                    </div>
+                </div>
+                <div class="row no-margin mb-20 pv-10 border-ccc border-t0">
+                    <div class="col-md-2">
+                        <span ng-bind="order.customsInfo.goodsType"></span>
+                    </div>
+                    <div class="col-md-2">
+                        <span ng-bind="order.weight+'KG'"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <span ng-bind="order.transportWayCName"></span>
+                    </div>
+
+                    <div class="col-md-2">
+                            <span ng-class="{'0':'font-orange','-1':'font-gray','2':''}[order.state]"
+                                  ng-bind="getState(order.state)"></span>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="javascript:void(0)" ng-click="openDetail(order)"
+                           class="font-orange">详情</a>
+                        <a ng-if="order.state=='0'" href="" class="font-orange" ng-click="pay(order)">支付</a>
+                        <a class="font-orange" href="javascript:void(0)"
+                           ng-if="order.state!='2'&&order.state!='-1'"
+                           ng-click="cancel(order._id.$id)">
+                            取消
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center">
+            <hls-pagination total-items="totalItems" ng-model="currentPage" class="pagination-sm"
+                            page-size="pageSize" ng-change="pageChange()"></hls-pagination>
+        </div>
+    </div>
+</div>
+</div>

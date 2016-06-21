@@ -1,0 +1,147 @@
+<div class="myel" ng-controller="myelMerchantCtrl">
+    <div class="nav-title">
+        所在位置&nbsp;-&nbsp;<a href="#/myel/index" class="font-orange">我的易联</a>&nbsp;-&nbsp<span>加盟商信息</span>
+    </div>
+    <div class="row mt-20 font-13">
+        <div class="col-md-2">
+            <hls-include url="'views/myel/menu.html'"/>
+        </div>
+        <div class="col-md-9 ml-30">
+            <div class="row">
+                <div class="col-md-12 border-ccc user-info">
+                    <img src="img/footer-contact-icon_ef4928b5.png" class="img-circle user-img">
+                    <div class="pull-left">
+                        <h3><b><span ng-bind="userInfo.name"></span>，欢迎您！</b></h3>
+                        <p>会员级别：<span class="font-orange">铁级会员</span></p>
+                        <p>您的积分为：<span class="font-red">125</span>,
+                            再获取 <span class="font-red">875</span> 积分即可升级为<span class="font-orange">铜级会员</span></p>
+                        <p>我的特权</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-if="!merchant">
+                <div class="col-mg-12 border-ccc user-info">
+                    <span ng-bind="userInfo.name"></span>
+                    <strong> 尚未加盟易联</strong>
+                    <span>立即加入</span>
+                    <a href="#/merchants/company">公司申请</a>|
+                    <a href="#/merchants/personal">个人申请</a>
+                </div>
+            </div>
+            <div class="row" ng-if="merchant.type=='company'">
+                <div class="col-mg-12 border-ccc user-info">
+                    <div class="row mv-15">
+                        <div class="col-md-2 text-right">
+                            <span>公司名称：</span>
+                        </div>
+                        <div class="col-md-10 text-left">
+                            <span ng-bind="merchant.name"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mv-15">
+                        <div class="col-md-2 text-right">
+                            <span>法人：</span>
+                        </div>
+                        <div class="col-md-10 text-left">
+                            <span ng-bind="merchant.leader"></span>
+                        </div>
+                    </div>
+                    <div class="row mv-15">
+                        <div class="col-md-2 text-right">
+                            <span>申请时间：</span>
+                        </div>
+                        <div class="col-md-10 text-left">
+                            <span ng-bind="getApplyTime()"></span>
+                        </div>
+                    </div>
+                    <div class="row mv-15">
+                        <div class="col-md-2 text-right">
+                            <span>电话：</span>
+                        </div>
+                        <div class="col-md-10 text-left">
+                            <span ng-bind="merchant.telephone"></span>
+                        </div>
+                    </div>
+                    <div class="row mv-15">
+                        <div class="col-md-2 text-right">
+                            <span>地址：</span>
+                        </div>
+                        <div class="col-md-10 text-left">
+                            <span ng-bind="getAddress()"></span>
+                        </div>
+                    </div>
+                    <div class="row mv-15">
+                        <div class="col-md-2 text-right">
+                            <span>状态：</span>
+                        </div>
+                        <div class="col-md-10 text-left">
+                            <span class="font-red" ng-bind="getState()"></span>
+                        </div>
+                    </div>
+                    <div ng-if="merchant.message" class="row mv-15">
+                        <div class="col-md-2 text-right">
+                            <span>备注：</span>
+                        </div>
+                        <div class="col-md-10 text-left">
+                            <span ng-bind="merchant.message"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-if="merchant.type=='personal'">
+                <div class="col-md-12 border-ccc user-info">
+                    <div class="row mv-15">
+                        <div class="col-md-2 text-right">
+                            <span>姓名：</span>
+                        </div>
+                        <div class="col-md-10 text-left">
+                            <span ng-bind="merchant.name"></span>
+                        </div>
+                    </div>
+                    <div class="row mv-15">
+                        <div class="col-md-2 text-right">
+                            <span>申请时间：</span>
+                        </div>
+                        <div class="col-md-10 text-left">
+                            <span ng-bind="getApplyTime()"></span>
+                        </div>
+                    </div>
+                    <div class="row mv-15">
+                        <div class="col-md-2 text-right">
+                            <span>电话：</span>
+                        </div>
+                        <div class="col-md-10 text-left">
+                            <span ng-bind="merchant.telephone"></span>
+                        </div>
+                    </div>
+                    <div class="row mv-15">
+                        <div class="col-md-2 text-right">
+                            <span>地址：</span>
+                        </div>
+                        <div class="col-md-10 text-left">
+                            <span ng-bind="getAddress()"></span>
+                        </div>
+                    </div>
+                    <div class="row mv-15">
+                        <div class="col-md-2 text-right">
+                            <span>状态：</span>
+                        </div>
+                        <div class="col-md-10 text-left">
+                            <span class="font-red" ng-bind="getState()"></span>
+                        </div>
+                    </div>
+                    <div ng-if="merchant.message" class="row mv-15">
+                        <div class="col-md-2 text-right">
+                            <span>备注：</span>
+                        </div>
+                        <div class="col-md-10 text-left">
+                            <span ng-bind="merchant.message"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

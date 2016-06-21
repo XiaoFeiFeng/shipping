@@ -1,0 +1,90 @@
+<div class="myel" ng-controller="myelIndexCtrl">
+    <div class="nav-title">
+        所在位置&nbsp;-&nbsp;<a href="#/myel/index" class="font-orange">我的易联</a>
+    </div>
+    <div class="row mt-20 font-13">
+        <div class="col-md-2">
+            <hls-include url="'views/myel/menu.html'"/>
+        </div>
+        <div class="col-md-9 ml-30">
+            <div class="row">
+                <div class="col-md-12 border-ccc user-info">
+                    <img src="img/footer-contact-icon_ef4928b5.png" class="img-circle user-img">
+                    <div class="pull-left">
+                        <h3><b><span ng-bind="userInfo.name"></span>，欢迎您！</b></h3>
+                        <p>会员级别：<span class="font-orange">铁级会员</span></p>
+                        <p>您的积分为：<span class="font-red">125</span>,
+                            再获取 <span class="font-red">875</span> 积分即可升级为<span class="font-orange">铜级会员</span></p>
+                        <p>我的特权</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5 border-ccc level-left">
+                    <div class="clearfix">
+                        <span class="safety">目前安全级别： <span class="font-red">低</span>&emsp;</span>
+                        <span class="safety safety-block bg-red"></span>
+                        <span class="safety safety-block bg-red"></span>
+                        <span class="safety safety-block"></span>
+                        <span class="safety safety-block"></span>
+                    </div>
+                    <br>
+                    <p>完善更多信息确保安全。<a href="#/personInfo/index" class="font-orange"><u>马上出发</u></a></p>
+                </div>
+                <div class="col-md-7 border-ccc level-right">
+                    <ul class="clearfix">
+                        <li class="ntegral">可用积分<br><span class="font-orange font-16">125</span></li>
+                        <li class="ntegral">优惠券<br><span class="font-16">0</span></li>
+                        <li class="ntegral">余额<br><span class="font-16">0</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row mt-30">
+                <div class="col-md-2 no-padding">
+                    <span>最新订单 </span><a href="#/order/myorder">更多</a></div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-12 hls-box pv-10">
+                    <div class="col-md-2 pr-0">运单号</div>
+                    <div class="col-md-1 pr-0">起运</div>
+                    <div class="col-md-2 pr-0">目的国家</div>
+                    <div class="col-md-2 pr-0">收件人</div>
+                    <div class="col-md-3 pr-0">创建时间</div>
+                    <div class="col-md-1 pr-0">状态</div>
+                    <div class="col-md-1 pr-0">操作</div>
+                </div>
+                <div ng-repeat="order in orders track by $index"
+                     class="col-md-12 border-ccc pv-10 border-top-none">
+                    <!--<div class="col-md-1">-->
+                    <!--<span ng-bind="$index+1"></span>-->
+                    <!--</div>-->
+                    <div class="col-md-2 pr-0">
+                        <a href="#/order/detail?id={{order._id.$id}}">
+                            <span class="font-orange" ng-bind="order.code"></span>
+                        </a>
+                    </div>
+                    <div class="col-md-1 pr-0">
+                        <span ng-bind="order.fromCity"></span>
+                    </div>
+                    <div class="col-md-2 pr-0">
+                        <span ng-bind="order.toCountry"></span>
+                    </div>
+                    <div class="col-md-2 pr-0">
+                        <span ng-bind="order.to.name"></span>
+                    </div>
+                    <div class="col-md-3 pr-0">
+                        <span ng-bind="getDate(order.created_time)"></span>
+                    </div>
+                    <div class="col-md-1 pr-0 ">
+                        <span class="font-red " ng-bind="getState(order.state)"></span>
+                    </div>
+                    <div class="col-md-1 pr-0">
+                    <span>
+                        <a class="font-orange" href="#/order/detail?id={{order._id.$id}}">详细</a>
+                    </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="myyilian" ng-controller="customsIndexCtrl">
+    <div class="nav-title">
+        所在位置 -
+        <a href="#/myyilian/index" class="font-gray">我的易联</a> -
+        <span class="font-orange">常用报关信息管理</span>
+    </div>
+    <div class="row mt-20">
+        <div class="col-md-2">
+            <hls-include url="'views/myyilian/menu.html'"/>
+        </div>
+        <div class="col-md-9 ml-20">
+            <div class="address-manage">
+                <a class="btn btn-info" ng-click="edit()">添加报关信息</a>
+                <a class="btn btn-info" ng-click="delete()">删除报关信息</a>
+            </div>
+            <div ng-if="hint" class="null-field">
+                <span class="glyphicon glyphicon-comment font-28 text-info"></span>
+                当前没有地址请点击左上方按钮来添加!
+            </div>
+            <div ng-if="exist">
+                <ul class="address-title clearfix no-margin">
+                    <li class="col-md-1">
+                        <input type="checkbox" ng-model="isAllChecked" ng-change="isAllChange(isAllChecked)">
+                    </li>
+                    <li class="col-md-2">物品类型</li>
+                    <li class="col-md-1">中文名</li>
+                    <li class="col-md-2">英文名</li>
+                    <li class="col-md-2">海关编号</li>
+                    <li class="col-md-2">配货备注</li>
+                    <li class="col-md-1">是否默认</li>
+                    <li class="col-md-1">操作</li>
+                </ul>
+                <ul class="address-info font-13 no-margin" ng-repeat="item in user.customs track by $index">
+
+                    <li class="col-md-1">
+                        <input type="checkbox" ng-model="item.check" ng-change="isOneChange()">
+                    </li>
+                    <li class="col-md-2" ng-bind="item.goodsType"></li>
+                    <li class="col-md-1" ng-bind="item.chineseName"></li>
+                    <li class="col-md-2" ng-bind="item.englishName"></li>
+                    <li class="col-md-2" ng-bind="item.code"></li>
+                    <li class="col-md-2" ng-bind="item.remark"></li>
+                    <li class="col-md-1">
+                        <input type="checkbox" name="selected" ng-model="item.is_default" ng-change="checked($index)">
+                    </li>
+                    <li class="col-md-1">
+                        <a href="" class="font-orange" ng-click="edit(item,$index)">编辑</a>
+                    </li>
+                    <div ng-if="item.is_default" class="selected-trigon">
+                        <img src="img/icon/default.png" width="23" height="23">
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>

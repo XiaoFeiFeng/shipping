@@ -1,0 +1,173 @@
+<div class="container" ng-controller="orderDetailCtrl">
+    <div class="nav-title text-left ">
+        所在位置 - <a href="#/myyilian/index" class="font-orange">我的易联</a> - <a href="#/order/myorder" class="font-orange">
+        我的订单</a> - 订单详情
+    </div>
+    <div class="row mt-20 font-13">
+        <div class="col-md-2">
+            <hls-include url="'views/myyilian/menu.html'"/>
+        </div>
+        <div class="col-md-9 ml-20">
+            <div class="row">
+                <div class="order-confirm-info margin-auto form-horizontal text-left">
+                    <div class="row order-confirm-bg pv-5">
+                        <span class="col-md-2 control-label pl-0">订单编号</span>
+                        <div class="col-md-2 order-info-text font-red">
+                            <span ng-bind="order.code"></span>
+                        </div>
+                        <span class="col-md-2 control-label pl-0">渠道</span>
+                        <div class="col-md-6 order-info-text font-red">
+                            <span ng-bind="order.transportWayCName"></span>
+                        </div>
+                    </div>
+                    <div class="row  mv-15 font-12">
+                        <strong> 订单信息</strong>
+                    </div>
+                    <div class="row order-confirm-bg pv-5">
+                        <span class="col-md-2 control-label pl-0">起运城市</span>
+                        <div class="col-md-2 order-info-text font-red">
+                            <span ng-bind="order.fromCity"></span>
+                        </div>
+                        <span class="col-md-2 control-label pl-0">目的国家</span>
+                        <div class="col-md-2 order-info-text font-red">
+                            <span ng-bind="order.toCountry"></span>
+                        </div>
+                        <span class="col-md-2 control-label pl-0">重量(KG)</span>
+                        <div class="col-md-2 order-info-text font-red">
+                            <span ng-bind="order.weight"></span>
+                        </div>
+
+                    </div>
+                    <div class="row order-confirm-bg pv-5">
+                        <span class="col-md-2 control-label pl-0">货物类型</span>
+                        <div class="col-md-2 order-info-text font-red">
+                            <span>包裹</span>
+                        </div>
+                        <span class="col-md-2 control-label pl-0">运费</span>
+                        <div class="col-md-2 order-info-text font-red">
+                            <span ng-bind="'￥'+order.sum"></span>
+                        </div>
+                    </div>
+                    <form name="orderConfirmForm" id="orderConfirmForm">
+                        <div class="row  mv-15 font-12">
+                            <strong>寄件人信息</strong>
+                        </div>
+                        <div class="row order-confirm-bg pv-5">
+                            <span class="col-md-2 control-label pl-0">联系人</span>
+                            <div class="col-md-2 order-info-text font-red">
+                                <span ng-bind="order.from.name"></span>
+                            </div>
+                            <span class="col-md-2 control-label pl-0">电话</span>
+                            <div class="col-md-2 order-info-text font-red">
+                                <span ng-bind="order.from.tel"></span>
+                            </div>
+                            <span class="col-md-2 control-label pl-0">邮箱</span>
+                            <div class="col-md-2 order-info-text font-red">
+                                <span ng-bind="order.from.email"></span>
+                            </div>
+                        </div>
+                        <div class="row order-confirm-bg pv-5">
+                            <span class="col-md-2 control-label pl-0">详细地址</span>
+                            <div class="col-md-6 order-info-text font-red">
+                                <span ng-bind="order.from.address"></span>
+                            </div>
+                        </div>
+                        <div class="row order-confirm-bg pv-5">
+                            <span class="col-md-2 control-label pl-0">邮编</span>
+                            <div class="col-md-2 order-info-text font-red">
+                                <span ng-bind="order.from.zip"></span>
+                            </div>
+                        </div>
+
+                        <div class="row mv-15 font-12">
+                            <strong> 收件人信息</strong>
+                        </div>
+                        <div class="row order-confirm-bg pv-5">
+                            <span class="col-md-2 control-label pl-0">联系人</span>
+                            <div class="col-md-2 order-info-text font-red">
+                                <span ng-bind="order.to.name"></span>
+                            </div>
+                            <span class="col-md-2 control-label pl-0">联系电话</span>
+                            <div class="col-md-2 order-info-text font-red">
+                                <span ng-bind="order.to.tel"></span>
+                            </div>
+                        </div>
+                        <div class="row order-confirm-bg pv-5">
+                            <span class="col-md-2 control-label pl-0">详细地址</span>
+                            <div class="col-md-6 order-info-text font-red">
+                                <span ng-bind="order.to.address"></span>
+                            </div>
+                        </div>
+                        <div class="row order-confirm-bg pv-5">
+                            <span class="col-md-2 control-label pl-0">邮编</span>
+                            <div class="col-md-2 order-info-text font-red">
+                                <span ng-bind="order.to.zip"></span>
+                            </div>
+                        </div>
+
+                        <div class="row mv-15 font-12">
+                            <strong> 海关申报信息</strong>
+                        </div>
+                        <div class="row order-confirm-bg pv-5">
+                            <span class="col-md-2 control-label pl-0">物品类别</span>
+                            <div class="col-md-2 order-info-text font-red">
+                                <span ng-bind="order.customsInfo.goodsType"></span>
+                            </div>
+                            <span class="col-md-2 control-label pl-0">英文名</span>
+                            <div class="col-md-2 order-info-text font-red">
+                                <span ng-bind="order.customsInfo.englishName"></span>
+                            </div>
+                            <span class="col-md-2 control-label pl-0">中文名</span>
+                            <div class="col-md-2 order-info-text font-red">
+                                <span ng-bind="order.customsInfo.chineseName"></span>
+                            </div>
+                        </div>
+
+                        <div class="row order-confirm-bg pv-5">
+                            <span class="col-md-2 control-label pl-0">申报数量</span>
+                            <div class="col-md-2 order-info-text font-red">
+                                <span ng-bind="order.customsInfo.number"></span>
+                            </div>
+                            <span class="col-md-2 control-label pl-0">单位</span>
+                            <div class="col-md-2 order-info-text font-red">
+                                <span ng-bind="order.customsInfo.unit"></span>
+                            </div>
+                            <span class="col-md-2 control-label pl-0">申报单价</span>
+                            <div class="col-md-2 order-info-text font-red">
+                                <span ng-bind="order.customsInfo.price"></span>
+                            </div>
+                        </div>
+                        <div class="row order-confirm-bg pv-5">
+                            <span class="col-md-2 control-label pl-0">总净重</span>
+                            <div class="col-md-2 order-info-text font-red">
+                                <span ng-bind="order.customsInfo.weight"></span>
+                            </div>
+                        </div>
+                        <div class="row order-confirm-bg pv-5">
+                            <span class="col-md-2 control-label pl-0">海关编号</span>
+                            <div class="col-md-2 order-info-text font-red">
+                                <span ng-bind="order.customsInfo.code"></span>
+                            </div>
+                            <span class="col-md-2 control-label pl-0">配货备注</span>
+                            <div class="col-md-6 order-info-text font-red">
+                                <span ng-bind="order.customsInfo.description"></span>
+                            </div>
+                        </div>
+
+                        <div class="row mv-15 font-12">
+                            <strong> 备注</strong>
+                        </div>
+
+                        <div class="row pv-10 order-confirm-bg pv-5">
+                            <span class="col-md-2 control-label pl-0">留言</span>
+                            <div class="col-md-6 order-info-text font-red">
+                                <span ng-bind="order.message"></span>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

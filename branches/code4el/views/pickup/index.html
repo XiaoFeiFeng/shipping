@@ -1,0 +1,108 @@
+<div class="container ng-scope" ng-controller="pickupIndexCtrl">
+    <div class="rew">
+        <div class=" ml-15 mt-30 col-md-3">
+            <div class="pv-10 font-18 font-bold " style=" border-bottom: 1px dashed #333;text-align:center">
+               上门取件
+            </div>
+            <div class="nav  lisebs">
+                <ul role="menu" class="mv-20" >
+                    <li class="font-14 pv-5 margin-10" style="background: #122b87;"> <a  style="color: #FFFFFF;" href="#/pickup/index">上门取件</a></li>
+                </ul>
+            </div>
+            <div style="width: 257px; margin-top: 20px;">
+                <img src="/img/yilian_wacht.jpg" style="width: 100%; height: 100%;  margin-bottom: 20px;"/>
+                <img src="/img/publicity-c.jpg" style="width: 100%; height: 100%;"/>
+
+            </div>
+
+
+        </div>
+
+        <div class="col-md-8 ml-30 mt-10">
+            <div  class=" mt-30 "><img src="/img/pickup.jpg" style="width: 100%; height: 100%"></div>
+            <div class="row text-center" >
+                <div class="col-md-12 text-center mt-25 ml-15">
+                    <form name="pickupForm" id="pickupForm" class="form-horizontal text-right">
+                        <div class="text-left pv-5">
+                            <label class="control-label labs">寄件人信息</label>
+                        </div>
+                        <div class="pv-10">
+                        </div>
+                        <div class="row pv-5">
+                            <div class="col-md-4 control-label font-13">
+                                <small class="font-red">*</small>
+                                联系人
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" id="fromName" name="fromName" class="form-control"
+                                       ng-model="from.name"
+                                       placeholder="寄件人姓名" required requiredmsg="请输入寄件人姓名" dir-directive-ext>
+                            </div>
+                        </div>
+                        <div class="row pv-5">
+                            <div class="col-md-4 control-label font-13">
+                                <i class="font-red">* </i>联系电话
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" id="fromTel" name="fromTel" class="form-control"
+                                       ng-model="from.tel"
+                                       placeholder="寄件人联系电话" required requiredmsg="请输入联系电话" dir-directive-ext/>
+                            </div>
+                        </div>
+                        <div class="row pv-5">
+                            <div class="col-md-4 pt-15 control-label font-13">
+                                <i class="font-red">* </i>寄件人所在区域
+                            </div>
+                            <div class="col-md-6 text-left pv-10">
+                                <city-select ng-model="city.cn"></city-select>
+                            </div>
+                            <div class="col-md-2 text-left pv-10" ng-if="showChoose">
+                                <button type="button" class="btn btn-link font-11 font-orange"
+                                        ng-click="chooseAddress('from')">
+                                    <span>常用地址</span>
+                                    <i class="fa fa-angle-double-down"> </i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row pv-5">
+                            <div class="col-md-4 control-label font-13">
+                                <i class="font-red">* </i>寄件人详细地址
+                            </div>
+                            <div class="col-md-6">
+                      <textarea id="fromAddress" name="fromAddress" style="resize: none;" ng-model="from.address"
+                                class="form-control" required requiredmsg="请输入寄件人地址" dir-directive-ext></textarea>
+                            </div>
+                        </div>
+                        <div class="row pv-5" ng-if="showChoose">
+                            <div class="col-md-8 col-md-offset-4 text-left">
+
+                            </div>
+                        </div>
+                        <div class="row pv-5">
+                            <div class="col-md-4 control-label font-13">
+                                <i class="font-red"></i>目的国家
+                            </div>
+                            <div class="col-md-6">
+                                <hls-country hls-data="countryData" hls-class="form-control"
+                                             hls-placeholder="请选择目的地"></hls-country>
+                            </div>
+                        </div>
+
+                        <div class="row pv-15">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-warning"
+                                        ng-click="submit(pickupForm.$invalid)">
+                                    <span>确认下单</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!--<div class="col-md-4">-->
+                <!--<hls-include url="'views/quote/search.html'"/>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+</div>
+</div>

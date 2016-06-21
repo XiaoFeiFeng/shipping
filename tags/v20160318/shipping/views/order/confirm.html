@@ -1,0 +1,162 @@
+<div class="container" ng-controller="orderConfirmCtrl">
+    <div class="row">
+        <div class="order-confirm-info margin-auto form-horizontal text-left">
+
+            <div class="row mv-15 font-12">
+                <strong> 订单信息</strong>
+            </div>
+
+            <div class="row order-confirm-bg pv-10">
+                <div class="col-md-3">
+                    <span>订单编号:</span>
+                    <strong class="font-red pl-15" ng-bind="order.code">包裹</strong>
+                </div>
+                <div class="col-md-2">
+                    <span>物品类型:</span>
+                    <strong class="font-red pl-15">包裹</strong>
+                </div>
+                <div class="col-md-2">
+                    <span>重量:</span>
+                    <strong class="font-red pl-15" ng-bind="order.weight+' KG'"></strong>
+                </div>
+                <div class="col-md-5">
+                    <span>渠道:</span>
+                    <strong class="font-red pl-15" ng-bind="order.transportWayCName"></strong>
+                </div>
+            </div>
+            <div class="row order-confirm-bg mv-5 pv-10">
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="col-md-12 pv-10">
+                            <strong ng-bind="order.from.name">
+                            </strong>
+                            <abbr class="ml-15" title="Phone"><i class="fa fa-phone"> </i> </abbr>
+                            <span ng-bind="order.from.tel"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 pv-10">
+                            <span ng-bind="order.from.address"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 pv-10">
+                            <span ng-bind="order.from.zip"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 mv-30">
+                    <i class="fa fa-arrow-right" style="font-size: 14px"> </i>
+                </div>
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="col-md-12 pv-10">
+                            <strong ng-bind="order.to.name">
+                            </strong>
+                            <abbr class="ml-15" title="Phone"><i class="fa fa-phone"> </i> </abbr>
+                            <span ng-bind="order.to.tel"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 pv-10">
+                            <span ng-bind="order.to.address"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 pv-10">
+                            <span ng-bind="order.to.zip"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form name="orderConfirmForm" id="orderConfirmForm">
+                <div class="row pv-10 mv-15 font-12">
+                    <strong> 海关申报信息</strong>
+                </div>
+                <div class="row order-confirm-bg">
+                    <span class="col-md-1 control-label pl-0"><i class="font-red">* </i>物品类别</span>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control input-sm" id="goodsType" name="goodsType"
+                               ng-model="customsInfo.goodsType" required requiredmsg="请输入物品类别"
+                               placeholder="请输入物品类别,例：包裹/电池/信件"
+                               dir-directive-ext/>
+                    </div>
+                    <span class="col-md-1 control-label pl-0"><i class="font-red">* </i>英文名</span>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control input-sm" id="englishName" name="englishName"
+                               ng-model="customsInfo.englishName" required requiredmsg="请输入英文名" dir-directive-ext/>
+                    </div>
+                    <span class="col-md-1 control-label pl-0"><i class="font-red">* </i>中文名</span>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control input-sm" id="chineseName" name="chinseseName"
+                               ng-model="customsInfo.chineseName" required requiredmsg="请输入物品中文名" dir-directive-ext/>
+                    </div>
+                </div>
+
+                <div class="row order-confirm-bg">
+                    <span class="col-md-1 control-label pl-0"><i class="font-red">* </i>申报数量</span>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control input-sm" id="number" name="number"
+                               ng-model="customsInfo.number" required requiredmsg="请输入申报数量" dir-directive-ext/>
+                    </div>
+                    <span class="col-md-1 control-label pl-0"><i class="font-red">* </i>单位</span>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control input-sm" id="unit" name="unit"
+                               ng-model="customsInfo.unit" required requiredmsg="请输入单位" dir-directive-ext/>
+                    </div>
+                    <span class="col-md-1 control-label pl-0"><i class="font-red">* </i>申报单价</span>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">￥</span>
+                            <input type="text" class="form-control input-sm" id="price" name="price"
+                                   ng-model="customsInfo.price" required requiredmsg="请输入申报单价" dir-directive-ext/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row order-confirm-bg">
+                    <span class="col-md-1 control-label pl-0"><i class="font-red">* </i>总净重</span>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm" id="weight" name="weight"
+                                   ng-model="customsInfo.weight" required requiredmsg="请输入物品重量" dir-directive-ext/>
+                            <span class="input-group-addon">KG</span>
+                        </div>
+                    </div>
+                    <span class="col-md-1 control-label pl-0">海关编号</span>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control input-sm" id="code" name="code"
+                               ng-model="customsInfo.code"/>
+                    </div>
+                </div>
+                <div class="row pv-10 order-confirm-bg">
+                    <span class="col-md-1 control-label pl-0">备注</span>
+                    <div class="col-md-7">
+                     <textarea name="message" style="resize: none;" class="form-control"
+                               ng-model="customsInfo.remark">
+                     </textarea>
+                    </div>
+                </div>
+                <div class="row pv-10">
+                    <button type="button" class="btn btn-link font-11 font-orange" ng-click="chooseCustoms()">
+                        <span>常用报关信息</span>
+                        <i class="fa fa-angle-double-down"> </i>
+                    </button>
+                </div>
+
+                <div class="row pv-10 mv-15 font-12">
+                    <div class="col-md-12 text-right">
+                        <span>合计:</span>
+                        <label class="control-label ph-15 font-red font-bold font-16">
+                            ￥{{order.sum}}
+                        </label>
+                        <button type="submit" class="btn btn-lg btn-warning"
+                                ng-click="submitForm(orderConfirmForm.$invalid)">
+                            <span class="ph-15"> 结算</span>
+                        </button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

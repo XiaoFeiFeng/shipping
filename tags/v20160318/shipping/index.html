@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>互联速物流平台</title>
+    <meta name="description" content=""/>
+    <meta name="keywords" content="贸易宝 进销存系统 ERP系统 Ebay进销存 速卖通订单ERP 速卖通进销存 Amazon进销存 企业进销存定制 ERP系统定制 CpowerSoft.COM"/>
+    <meta name="robots" content="index, follow"/>
+    <link rel="shortcut icon" href="img/favicon.png">
+    <script data-main="app.js?ver=1.0.0.1" src="http://192.168.100.254/requirejs/require.js"></script>
+</head>
+<body class="index-body" ng-controller="indexCtrl">
+
+<div class="container text-center">
+    <div class="row hls-top font-13">
+        <div class="col-md-2">
+            <a href="/shipping">
+                <img src="img/logo.png" class="logo"/>
+            </a>
+        </div>
+        <div class="col-md-10">
+            <hls-include url="'views/home/top.html'"/>
+        </div>
+    </div>
+    <div class="row">
+        <hls-include url="'views/home/nav.html'"/>
+    </div>
+
+    <div class="clearfix" ui-view></div>
+
+    <div class="row mt-20 hls-footer">
+        <hls-include url="'views/home/footer.html'"/>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<div class="container ng-scope"  ng-controller="merchantsCompanyCtrl">
+    <div class="row">
+<div class=" ml-15 mt-30 col-md-3">
+    <div class="pv-10 font-18 font-bold " style=" border-bottom: 1px dashed #333;text-align:center">
+        物流商盟
+    </div>
+    <div class="nav  lisebs">
+        <ul role="menu" class="mv-20" >
+            <li class="font-14 pv-5 margin-10" > <a  style="color: #000;" href="#/merchants/personal">个人申请</a></li>
+            <li class="font-14 pv-5 margin-10" style="background: #122b87;"> <a style="color: #FFFFFF;" href="#/merchants/company">公司申请</a></li>
+            <li class="font-14 pv-5 margin-10"> <a style="color: #000;"href="/index/map.html">查看物流点</a></li>
+        </ul>
+    </div>
+    <div style="width: 257px; margin-top: 20px;">
+        <img src="/img/publicity-b.jpg" style="width: 100%; height: 100%;  margin-bottom: 20px;"/>
+        <img src="/img/publicity-c.jpg" style="width: 100%; height: 100%;"/>
+
+    </div>
+
+
+</div>
+        <div class="col-md-8 ml-30 mt-10">
+            <div  class=" mt-30 "><img src="/img/merchants.jpg" style="width: 100%; height: 100%"></div>
+
+    <div class="row text-center mh-15">
+        <div class="col-md-12">
+            <h4 style="float: left;"><b>公司申请</b></h4>
+            <form class="container-fluid" name="companyForm">
+                <table width="100%">
+                    <tr>
+                        <td><span class="font-red">*</span>公司名称:</td>
+                        <td colspan="3">
+                            <input type="text" class="form-control" ng-model="merchant.name"
+                                   required dir-directive-ext></td>
+                    </tr>
+                    <tr>
+                        <td width="20%">
+                            <span class="font-red">*</span>法人代表:
+                        </td>
+                        <td width="30%">
+                            <input type="text" class="form-control" ng-model="merchant.leader"
+                                   required dir-directive-ext>
+                        </td>
+                        <td width="20%">
+                            <span class="font-red">*</span>成立时间:
+                        </td>
+                        <td width="30%">
+                            <hls-datetimepicker select-model="merchant.CompanyTime"></hls-datetimepicker>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="font-red">*</span>联系电话:</td>
+                        <td>
+                            <input type="text" class="form-control" ng-model="merchant.telephone"
+                                   required dir-directive-ext>
+                        </td>
+                        <td><span class="font-red">*</span>公司规模:</td>
+                        <td>
+                            <select class="form-control" ng-model="merchant.scale">
+                                <option value="50">50人以下</option>
+                                <option value="100">50人到100人</option>
+                                <option value="500">100人到500人</option>
+                                <option value="1500">500人到1500人</option>
+                                <option value="0">1500人以上</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="font-red">*</span>申请人:</td>
+                        <td>
+                            <input type="text" class="form-control" ng-model="merchant.applyUser"
+                                   required dir-directive-ext>
+                        </td>
+                        <td><span class="font-red">*</span>申请人职位:
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" ng-model="merchant.applyUserOffice"
+                                   required dir-directive-ext></td>
+                    </tr>
+                    <tr>
+                        <td><span class="font-red">*</span>所在区域:</td>
+                        <td class="text-left">
+                            <city-select ng-model="merchant.district"></city-select>
+                        </td>
+                        <td><span class="font-red">*</span>详细地址:</td>
+                        <td>
+                            <textarea type="text" rows="2" style="resize: none" class="form-control"
+                                      ng-model="merchant.address"
+                                      required dir-directive-ext></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="font-red">*</span>上传证件:</td>
+                        <td colspan="3">
+                            <input id="fileupload" name="upload[]" type="file" multiple>
+                            <p class="padding-15">
+                                <small> 文件最大不能超过2M，最多上传3张
+                                    <br>
+                                    支持.jpg、.jpeg、.gif、.png格式
+                                </small>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="row text-center padding-20">
+                    <button type="submit" class="btn btn-warning btn-lg"
+                            ng-click="apply(companyForm.$invalid)">立即申请
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</div>

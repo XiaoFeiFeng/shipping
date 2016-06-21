@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>互联速物流平台</title>
+    <meta name="description" content=""/>
+    <meta name="keywords" content="贸易宝 进销存系统 ERP系统 Ebay进销存 速卖通订单ERP 速卖通进销存 Amazon进销存 企业进销存定制 ERP系统定制 CpowerSoft.COM"/>
+    <meta name="robots" content="index, follow"/>
+    <link rel="shortcut icon" href="img/favicon.png">
+    <script data-main="app.js?ver=1.0.0.1" src="http://192.168.31.254/requirejs/require.js"></script>
+</head>
+<body class="index-body container-fluid" ng-controller="indexCtrl">
+
+<div class="container mv-10">
+    <div class="col-md-4 text-left">
+        <a href="/#">
+            <img src="img/logo.png" class="logo"/>
+        </a>
+    </div>
+    <div class="col-md-8 text-right">
+        <hls-include url="'views/home/top.html'"/>
+    </div>
+</div>
+
+<div class="row">
+    <hls-include url="'views/home/nav.html'"/>
+</div>
+<div style="position: fixed; right:5px;top:200px;z-index: 10008">
+    <div id="myNav" style="width: 60px;height: 50px; right: 5px; ">
+        <div style="width: 60px; height: 50px; background-color: black; opacity: .4; cursor:pointer" id="popoverdiv"
+             data-html="true"
+             data-toggle="popover" data-placement="left"
+             data-content="<div class='mr-20'><img src='img/93myb_wx_barcode.png'><br><small>关注二维码</small></div>">
+             <img class="ml-15" src="img/icon/weixin.png">
+             <div class="font-12 ml-5">在线咨询</div>
+        </div>
+    </div>
+</div>
+<!--<div style="position: fixed; right:5px;top:250px;z-index: 10008">
+    <div id="myNav" style="width: 60px;height: 80px; right: 30px;">
+        <div style="width: 100px; height: 50px; background-color:red; opacity: .5; cursor:pointer" id="popoverdiv"
+             data-html="true"
+             data-toggle="popover" data-placement="left"
+             data-content="<div class='mr-20'><img src='img/93myb_wx_barcode.png'><br><small>关注二维码</small></div>">
+            扫一扫
+        </div>
+    </div>
+</div>
+<div style="position: fixed; right:5px;top:300px;z-index: 10008">
+    <div id="myNav" style="width: 60px;height: 80px; right: 30px;">
+        <div style="width: 100px; height: 50px; background-color:blue; opacity: .5; cursor:pointer" id="popoverdiv"
+             data-html="true"
+             data-toggle="popover" data-placement="left"
+             data-content="<div class='mr-20'><img src='img/93myb_wx_barcode.png'><br><small>关注二维码</small></div>">
+            联系客服
+        </div>
+    </div>
+</div>-->
+<div class="row clearfix" ui-view></div>
+
+<div class="row clearfix hls-footer">
+    <hls-include url="'views/home/footer.html'"/>
+</div>
+
+</body>
+</html>

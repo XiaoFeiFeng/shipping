@@ -1,0 +1,65 @@
+<div class="col-md-10 col-md-offset-1" ng-controller="channelIndexCtrl">
+    <div class="btn-group">
+        <button ng-repeat="item in categorys track by $index" type="button" class="btn btn-default"
+                ng-click="getChannels(item)">
+            <i class="fa fa-list-alt"></i> {{item.name}}
+        </button>
+    </div>
+
+    <div class="row col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">当前运输方式:<b ng-bind="currentCategory.name"></b></h3>
+
+                <div class="box-tools">
+                    <div class="input-group" style="width: 250px;">
+                        <input type="text" name="table_search" class="form-control  pull-right"
+                               placeholder="Search">
+
+                        <div class="input-group-btn">
+                            <button class="btn btn-default"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+
+                <div ng-if="currentCategory.name">
+                    <button class="btn  btn-warning" ng-click="addChannel()"><i class="fa fa-plus"></i>
+                        <span ng-bind="'添加'+currentCategory.name+'渠道'"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <tbody>
+                    <tr>
+                        <th>编号</th>
+                        <th>渠道名</th>
+                        <th>渠道Code</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                    <tr ng-repeat="data in channels track by $index">
+                        <td ng-bind="$index+1"></td>
+                        <td ng-bind="data.name"></td>
+                        <td ng-bind="data.code"></td>
+                        <td ng-bind="state(data.used)"></td>
+                        <td>
+                            <button type="button" class="btn btn-link" ng-click="modifyChannel(data)">
+                                <i class="fa fa-edit"> </i><span>编辑</span>
+                            </button>
+                            <button type="button" class="btn btn-link" ng-click="modifyState(data)">
+                                <i class="fa fa-minus-square-o"> </i><span ng-bind="stateOper(data.used)"></span>
+                            </button>
+                            <button type=" button" class="btn btn-link" ng-click="delChannel(data._id.$id)">
+                                <i class="fa fa-trash-o"> </i><span>删除</span>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

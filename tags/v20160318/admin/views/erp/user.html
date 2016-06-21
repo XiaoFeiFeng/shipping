@@ -1,0 +1,12 @@
+
+<div class="box" ng-controller="erpUserCtrl">
+      <div class="box-body">
+
+        <hls-grid grid-options="gridOptions"></hls-grid>
+
+    </div><!-- /.box-body -->
+    <div class="box-footer">
+        <hls-pagination total-items="totalItems" ng-model="currentPage" class="pagination-sm"
+                        page-size="pageSize" ng-change="pageChange()"></hls-pagination>
+    </div>
+</div>

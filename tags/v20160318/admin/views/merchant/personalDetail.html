@@ -1,0 +1,39 @@
+<div class="box box-info" style="border:0">
+    <div class="box-header with-border text-center" style="background-color: #E8E8E8">
+        <h3 class="box-title"><b>加盟审核------个人</b></h3>
+        <i style="cursor:pointer" class="fa fa-close pull-right" ng-click="cancel()"></i>
+    </div>
+    <div class="box-body">
+        <div class="col-md-3">
+            <dl>
+                <dt class="pv-10">姓名:</dt>
+                <dd ng-bind="merchant.name"></dd>
+
+                <dt class="pv-10">电话:</dt>
+                <dd ng-bind="merchant.telphone"></dd>
+
+                <dt class="pv-10">地址:</dt>
+                <dd ng-bind="getAddress()"></dd>
+            </dl>
+        </div>
+        <div class="col-md-9 text-center">
+            <dt>证件(点击可查看大图)</dt>
+            <p ng-repeat="item in merchant.images track by $index">
+                <img width="500px" class="cursor-hand padding-15" title="点击查看大图"
+                     ng-src="{{getImage(item)}}" ng-click="openImage(item)" data-placement="right">
+                <span style="padding: 15px;display: block;" ng-bind="'图  '+($index+1)"></span>
+            </p>
+        </div>
+    </div>
+    <div class="box-footer text-center">
+        <button type="button" ng-if="merchant.state==0" class="btn btn-success" ng-click="submitForm(1)">
+            <i class="fa fa-check"> </i> 审核通过
+        </button>
+        <button type="button" ng-if="merchant.state==0" class="btn btn-danger" ng-click="submitForm(2)">
+            <i class="fa fa-close"> </i> 拒绝
+        </button>
+        <button type="button" class="btn bg-navy" ng-click="cancel()">
+            <i class="fa fa-close"> </i> 关闭
+        </button>
+    </div>
+</div>

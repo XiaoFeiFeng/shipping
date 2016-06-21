@@ -1,0 +1,14 @@
+<div ng-controller="quoteIndexCtrl">
+    查价主页面
+    <button type="button" class="btn btn-lg btn-primary" ng-click="getFee()">查询价格
+    </button>
+
+    <table>
+        <tr ng-repeat="item in result">
+            <td class="col-sm-2">{{item.transportWayCName}}</td>
+            <td class="col-sm-2">{{item.freight}}</td>
+            <td class="col-sm-2">{{item.currency}}</td>
+            <td class="col-sm-2">{{item.formula}}</td>
+        </tr>
+    </table>
+</div>

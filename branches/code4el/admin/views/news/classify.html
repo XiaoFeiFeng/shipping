@@ -1,0 +1,29 @@
+<div class="container" ng-controller="newsClassifyCtrl">
+    <div class="row mb-30">
+        <div class="col-md-5 col-md-offset-3">
+            <input class="form-control" ng-model="subclassName" type="text">
+        </div>
+        <div class="col-md-1">
+            <a class="btn btn-info"  ng-click="addProduct()" >
+                <span ng-bind="classifyBtn"></span>
+            </a>
+        </div>
+        <div class="col-md-2" ng-if="edit">
+            <a class="btn btn-info"  ng-click="editProduct()" >
+                <span>编辑产品详情</span>
+            </a>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-tab ph-20" ng-click="changeState(classify)" ng-repeat="classify in classifys">
+                <input type="radio" name="newsClassify" value="0"/>
+                <span ng-bind="classify.name"></span>
+            </label>
+        </div>
+    </div>
+
+    <div>
+        <hls-grid grid-options="gridOptions"></hls-grid>
+    </div>
+</div>

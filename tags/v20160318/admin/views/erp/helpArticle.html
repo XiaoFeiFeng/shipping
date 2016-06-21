@@ -1,0 +1,26 @@
+
+<div class="box" ng-controller="erpHelpArticleCtrl">
+    <div class="box-body">
+        <div class="btn-group">
+            <button ng-repeat="item in articles" type="button" class="btn btn-default" ng-click="getArticles(item)">
+                <i class="fa fa-list-alt"></i> {{item.name}}
+            </button>
+        </div>
+        <br>
+        <br>
+        <div ng-if="currentCategory.name">
+            <button class="btn  btn-warning" ng-click="add()"><i class="fa fa-plus"></i>
+                <span ng-bind="'添加'+currentCategory.name+'文章'"></span>
+            </button>
+        </div>
+    </div>
+    <div class="box-body">
+
+        <hls-grid grid-options="gridOptions"></hls-grid>
+
+    </div><!-- /.box-body -->
+    <div class="box-footer">
+        <hls-pagination total-items="totalItems" ng-model="currentPage" class="pagination-sm"
+                        page-size="pageSize" ng-change="pageChange()"></hls-pagination>
+    </div>
+</div>

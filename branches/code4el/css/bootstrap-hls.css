@@ -1,0 +1,245 @@
+.hls-box {
+    background: -moz-linear-gradient(top, #0392a1 0%, #01ACBE 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeeeee), color-stop(100%, #eeeeee));
+    background: -webkit-linear-gradient(top, #eeeeee 0%, #eeeeee 100%);
+    background: -o-linear-gradient(top, #eeeeee 0%, #eeeeee 100%);
+    background: -ms-linear-gradient(top, #eeeeee 0%, #eeeeee 100%);
+    background: linear-gradient(to bottom, #eeeeee 0%, #eeeeee 100%);
+    color: #333;
+    border-radius: 0px !important;
+}
+
+/*******************hls 导航********************/
+.navbar-hls {
+    font-family: "Microsoft YaHei";
+}
+
+.navbar-hls .navbar-brand {
+    color: #777;
+}
+
+.navbar-hls .navbar-brand:hover,
+.navbar-hls .navbar-brand:focus {
+    color: #5e5e5e;
+    background-color: transparent;
+}
+
+.navbar-hls .navbar-text {
+    color: #777;
+}
+
+.navbar-hls .navbar-nav > li > a {
+    font-family: SimHei;
+    font-size: 15px;
+    color: #ffffff;
+    font-weight: 300;
+}
+
+.navbar-hls .navbar-nav > li > a:hover,
+.navbar-hls .navbar-nav > li > a:focus {
+    color: #ffffff;
+    background-color: #028A9A;
+}
+
+.navbar-hls .navbar-nav > .active > a,
+.navbar-hls .navbar-nav > .active > a:hover,
+.navbar-hls .navbar-nav > .active > a:focus {
+    color: #ffffff;
+}
+
+.navbar-hls .navbar-nav > .disabled > a,
+.navbar-hls .navbar-nav > .disabled > a:hover,
+.navbar-hls .navbar-nav > .disabled > a:focus {
+    color: #ccc;
+    background-color: transparent;
+}
+
+.navbar-hls .navbar-toggle {
+    border-color: #ddd;
+}
+
+.navbar-hls .navbar-toggle:hover,
+.navbar-hls .navbar-toggle:focus {
+    background-color: #ddd;
+}
+
+.navbar-hls .navbar-toggle .icon-bar {
+    background-color: #888;
+}
+
+.navbar-hls .navbar-collapse,
+.navbar-hls .navbar-form {
+    border-color: #e7e7e7;
+}
+
+.navbar-hls .navbar-nav > .open > a,
+.navbar-hls .navbar-nav > .open > a:hover,
+.navbar-hls .navbar-nav > .open > a:focus {
+    color: #555;
+    background-color: #e7e7e7;
+}
+
+@media (max-width: 767px) {
+    .navbar-hls .navbar-nav .open .dropdown-menu > li > a {
+        color: #777;
+    }
+
+    .navbar-hls .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-hls .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #333;
+        background-color: transparent;
+    }
+
+    .navbar-hls .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-hls .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-hls .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #555;
+        background-color: #e7e7e7;
+    }
+
+    .navbar-hls .navbar-nav .open .dropdown-menu > .disabled > a,
+    .navbar-hls .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+    .navbar-hls .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+        color: #ccc;
+        background-color: transparent;
+    }
+}
+
+.navbar-hls .navbar-link {
+    color: #777;
+}
+
+.navbar-hls .navbar-link:hover {
+    color: #333;
+}
+
+.navbar-hls .btn-link {
+    color: #777;
+}
+
+.navbar-hls .btn-link:hover,
+.navbar-hls .btn-link:focus {
+    color: #333;
+}
+
+.navbar-hls .btn-link[disabled]:hover,
+fieldset[disabled] .navbar-hls .btn-link:hover,
+.navbar-hls .btn-link[disabled]:focus,
+fieldset[disabled] .navbar-hls .btn-link:focus {
+    color: #ccc;
+}
+
+/******************hls button*****************/
+.btn-hls {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+
+.btn-hls:focus,
+.btn-hls.focus {
+    color: #fff;
+    background-color: #31b0d5;
+    border-color: #1b6d85;
+}
+
+.btn-hls:hover {
+    color: #fff;
+    background-color: #31b0d5;
+    border-color: #269abc;
+}
+
+.btn-hls:active,
+.btn-hls.active,
+.open > .dropdown-toggle.btn-hls {
+    color: #fff;
+    background-color: #31b0d5;
+    border-color: #269abc;
+}
+
+.btn-hls:active:hover,
+.btn-hls.active:hover,
+.open > .dropdown-toggle.btn-hls:hover,
+.btn-hls:active:focus,
+.btn-hls.active:focus,
+.open > .dropdown-toggle.btn-hls:focus,
+.btn-hls:active.focus,
+.btn-hls.active.focus,
+.open > .dropdown-toggle.btn-hls.focus {
+    color: #fff;
+    background-color: #269abc;
+    border-color: #1b6d85;
+}
+
+.btn-hls:active,
+.btn-hls.active,
+.open > .dropdown-toggle.btn-hls {
+    background-image: none;
+}
+
+.btn-hls.disabled:hover,
+.btn-hls[disabled]:hover,
+fieldset[disabled] .btn-hls:hover,
+.btn-hls.disabled:focus,
+.btn-hls[disabled]:focus,
+fieldset[disabled] .btn-hls:focus,
+.btn-hls.disabled.focus,
+.btn-hls[disabled].focus,
+fieldset[disabled] .btn-hls.focus {
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+
+.btn-hls .badge {
+    color: #5bc0de;
+    background-color: #fff;
+}
+
+.btn-hls {
+    color: #ffffff;
+    background-image: -moz-linear-gradient(top, #0392a1, #01acbe);
+    background-image: -ms-linear-gradient(top, #0392a1, #01acbe);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0392a1), to(#01acbe));
+    background-image: -webkit-linear-gradient(top, #0392a1, #01acbe);
+    background-image: -o-linear-gradient(top, #0392a1, #01acbe);
+    background-image: linear-gradient(top, #0392a1, #01acbe);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#' 0392 a1, endColorstr='#' 01 acbe, GradientType=0);
+}
+
+.btn-hls:hover,
+.btn-hls:active,
+.btn-hls.active,
+.btn-hls.disabled,
+.btn-hls[disabled] {
+    background-color: #01acbe;
+}
+
+.btn-tab {
+    color: #000000;
+    background-color: #ffffff;
+    font-size: 12px;
+    display: inline-block;
+    padding: 8px 22px;
+    margin: 3px;
+    font-weight: normal;
+    text-align: center;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    border: 0px solid #c0c0c0 !important;
+
+    border-radius: 0px !important;
+}
+
+.btn-tab:hover {
+    color: #000000;
+    border-color: #269abc;
+    text-decoration: underline;
+}
+
+.btn-tab:active,
+.btn-tab.active {
+    color: #fff !important;
+    background-color: #31b0d5 !important;
+    border-color: #269abc !important;
+}

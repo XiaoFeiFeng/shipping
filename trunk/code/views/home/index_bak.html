@@ -1,0 +1,40 @@
+<div ng-controller="homeIndexCtrl">
+    <div class="row">
+        <div class="callbacks_container wow fadeInUp" data-wow-delay="0.5s">
+            <div class="carousel slide" id="hlsBanner" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li class="active" data-slide-to="0" data-target="#hlsBanner">
+                    </li>
+                    <li data-slide-to="1" data-target="#hlsBanner">
+                    </li>
+                    <li data-slide-to="2" data-target="#hlsBanner">
+                    </li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img class="img-responsive" alt="" src="img/banner_1.jpg"/>
+
+                    </div>
+                    <div class="item">
+                        <img class="img-responsive" alt="" src="img/banner_2.jpg"/>
+                    </div>
+                    <div class="item">
+                        <img class="img-responsive" alt="" src="img/banner_3.jpg"/>
+                    </div>
+                </div>
+                <a class="left carousel-control" href="##hlsBanner" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="##hlsBanner" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <hls-include url="'views/quote/search.html'"/>
+        </div>
+    </div>
+</div>
+     
+    

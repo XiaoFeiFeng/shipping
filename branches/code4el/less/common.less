@@ -1,0 +1,111 @@
+// 边框圆角
+//@radius 圆角度数
+.border-radius(@radius:5px) {
+
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+
+.box-shadow(@right_left:5px,@bottom_top:5px,@box :5px,@box_color:#b6ebf7) {
+  box-shadow: @arguments;
+  -moz-box-shadow: @arguments;
+  -webkit-box-shadow: @arguments;
+}
+
+.rgba(@rgba_a:.4,@rgb_b:40) {
+  filter: alpha(opacity=@rgb_b);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{rgb_b})";
+  opacity: @rgb_a;
+}
+
+//背景渐变
+//@start 开始颜色
+//@end 结束颜色
+//
+.linear-gradient(@start,@end) {
+  background: -moz-linear-gradient(top, @start 0%, @end 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @start), color-stop(100%, @end));
+  background: -webkit-linear-gradient(top, @start 0%, @end 100%);
+  background: -o-linear-gradient(top, @start 0%, @end 100%);
+  background: -ms-linear-gradient(top, @start 0%, @end 100%);
+  background: linear-gradient(to bottom, @start 0%, @end 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=@start, endColorstr=@end, grandientType=0);
+}
+
+//
+//移动距离
+//@x横向移动距离
+//@y纵向移动距离
+//
+.translate(@x :80px,@y :80px) {
+  transform: translate(@x, @y);
+  -webkit-transform: translate(@x, @y);
+  -moz-transform: translate(@x, @y);
+  -o-transform: translate(@x, @y);
+  -ms-transform: translate(@x, @y);
+}
+
+//
+//旋转角度
+//@ro定义度数
+//IE不支持 滤镜支持0，1，2，3
+//
+.rotate(@deg) {
+  transform: rotate(@deg);
+  -ms-transform: rotate(@deg); // IE 9
+  -webkit-transform: rotate(@deg); // Safari and Chrome
+  -o-transform: rotate(@deg); // Opera
+  -moz-transform: rotate(@deg); // Firefox
+}
+
+//
+//放大缩小
+//横向缩放比例
+//纵向缩放比例
+//
+.scale(@x :1.2,@y :1.2) {
+  transform: scale(@x, @y);
+  -webkit-transform: scale(@x, @y);
+  -moz-transform: scale(@x, @y);
+  -o-transform: scale(@x, @y);
+  -ms-transform: scale(@x, @y);
+}
+
+//
+//菱形旋转角度
+//@x横向缩放比例
+//@y纵向缩放比例
+//
+.skew(@x,@y) {
+  transform: skew(@x, @y);
+  -ms-transform: skew(@x, @y); // IE 9
+  -webkit-transform: skew(@x, @y); // Safari and Chrome
+  -o-transform: skew(@x, @y); // Opera
+  -moz-transform: skew(@x, @y); // Firefox
+}
+
+.rotateX(@deg) {
+  transform: rotateX(@deg);
+  -webkit-transform: rotateX(@deg); // Safari 和 Chrome
+  -moz-transform: rotateX(@deg); // Firefox
+}
+
+.rotateY(@deg) {
+  transform: rotateY(@deg);
+  -webkit-transform: rotateY(@deg); // Safari 和 Chrome
+  -moz-transform: rotateY(@deg); // Firefox
+}
+
+.column-count(@count) {
+  -moz-column-count: @count; // Firefox
+  -webkit-column-count: @count; //Safari 和 Chrome
+  column-count: @count;
+}
+
+.column-gap(@gap) {
+  -moz-column-gap: 40px; //Firefox
+  -webkit-column-gap: 40px; // Safari 和 Chrome
+  column-gap: 40px;
+}
+

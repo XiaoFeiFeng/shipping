@@ -1,0 +1,26 @@
+<div  class="container ng-scope" ng-controller="aboutIndexCtrl">
+    <div class="rew">
+        <div class=" ml-15 mt-30 col-md-3">
+            <div class="pv-10 font-18 font-bold " style=" border-bottom: 1px dashed #333;text-align:center">
+                关于易联
+            </div>
+            <div class="nav  lisebs">
+                <ul role="menu " class="mv-20 about-menus" >
+                    <li class="about-active" ng-click="alter(0,'intro')"><span>易联简介</span></li>
+                    <li ng-click="alter(1,'culture')"><span>易联文化</span></li>
+                    <li ng-click="alter(2,'join')"><span>加入易联</span></li>
+                    <li ng-click="alter(3,'contactus')"><span>联系我们</span></li>
+                </ul>
+            </div>
+            <div style="width: 257px;margin-top: 20px;">
+                <img src="/img/yilian_wacht.jpg" style="width: 100%; height: 100%;  margin-bottom: 20px;"/>
+            </div>
+        </div>
+        <div class="col-md-8 ml-30 mt-10">
+            <div class="text-left pv-5">
+                <label class="control-label labs"><span ng-bind="data.title"></span></label>
+            </div>
+            <div id="content"></div>
+        </div>
+    </div>
+</div>

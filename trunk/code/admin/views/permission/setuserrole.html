@@ -1,0 +1,23 @@
+<div class="box box-info" style="border:0px;">
+    <div class="box-header">
+        <h3 class="box-title">设置用户角色</h3>
+        <i style="cursor:pointer" class="fa fa-close pull-right" ng-click="cancel()"></i>
+    </div>
+    <div class="box-body">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="checkbox">
+                <label ng-repeat="role in roles">
+                    <input type="checkbox" ng-model="role.checked">{{role.name}}&nbsp;&nbsp;
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="box-footer text-center">
+        <button type="button" class="btn btn-success" ng-click="submit()">
+            <i class="fa fa-check"> </i> 保存
+        </button>
+        <button type="button" class="btn bg-navy" ng-click="cancel()">
+            <i class="fa fa-close"> </i> 关闭
+        </button>
+    </div>
+</div>

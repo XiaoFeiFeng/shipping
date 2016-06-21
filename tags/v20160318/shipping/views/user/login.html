@@ -1,0 +1,82 @@
+<div class="text-left" ng-controller="userLoginCtrl">
+    <div class="row">
+        <div class="col-md-2">
+            <a href="/shipping">
+                <img src="img/logo.png" class="yilian"/>
+            </a>
+        </div>
+        <div class="col-md-3 form-title">&emsp;&emsp;欢迎登陆</div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-7">
+            <img class="pr-30 img-responsive" src="img/banner1.jpg"/>
+        </div>
+        <div class="col-md-4 form-border">
+            <div class="fl-bun">
+                <a href="/shipping/user.html#/user/register" class="btn btn-hls btn-xs">免费注册</a>
+            </div>
+            <form id="loginForm" name="loginForm">
+                <div class="form-group  has-feedback">
+                    <label class="control-label " for="inputUser">
+                        <small>用户名</small>
+                    </label>
+                    <input type="text" ng-model="user.name" class="form-control input-lg" id="inputUser"
+                           placeholder="请输入用户名"
+                           required dir-directive-ext requiredmsg="请输入用户名">
+                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                </div>
+
+                <div class="form-group has-feedback">
+                    <label class="control-label" for="inputPass">
+                        <small>登录密码</small>
+                    </label>
+                    <input type="password" ng-model="user.password" class="form-control input-lg" id="inputPass"
+                           placeholder="请输入用户名"
+                           required dir-directive-ext requiredmsg="请输入密码">
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+                <div class="text-right">
+                    <small><a href="#/user/passreset">忘记密码？</a></small>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-5">
+                        <label class="control-label" for="inputCheckImg">
+                            <small>验证码</small>
+                        </label>
+                        <input id="inputCheckImg" type="text" ng-model="user.checkimg" class="form-control input-lg"
+                               dir-rangelength="4,4" dirrangelengthmsg="验证码长度为4位" dir-directive-ext>
+                    </div>
+                    <div class="col-md-7" style="padding: 8px 0 0 0 ;"><br>
+                        <img ng-src="{{checkImgSrc}}">
+                        <small>看不清？</small>
+                        <a href="" ng-click="exchangeImg()">换一张</a>
+                    </div>
+                </div>
+                <div class="row text-center pv-25" ng-show="error">
+                    <span class="font-red font-bold" ng-bind="error"></span>
+                </div>
+                <div class="row mv-10">
+                    <div class="col-md-12">
+                        <button type="button" ng-click="login(loginForm.$invalid)"
+                                class="btn btn-hls btn-block btn-lg">登陆
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <div class="mv-15">
+                <small>
+                    第三方登陆：
+                    <a href="" ng-click="richScan()" title="微信登陆"><img src="img/icon/weixin.png" width="25" height="25"/></a>
+                    <a href="https://graph.qq.com/oauth2.0/authorize?client_id=101194509&amp;response_type=token&amp;scope=all&amp;redirect_uri=http%3A%2F%2Fwww.93myb.com%2Fapi%2Ftx%2FQQ_connect_callback.php?state=ylsd"
+                       title="QQ登录"><img src="img/icon/QQ.png" width="25" height="25"/></a>
+                    <a href="http://gw.api.alibaba.com/auth/authorize.htm?client_id=9223302&redirect_uri=http://www.93myb.com/api/aliexpress/ylsd_callback.php&site=aliexpress&_aop_signature=0ECD972489CAE5F191222A2D6B4083C4C5C8239C"
+                       title="速卖通登录"><img src="img/icon/Eliexpress.png" width="25" height="25"/></a>
+                </small>
+
+            </div>
+        </div>
+
+    </div>
+</div>

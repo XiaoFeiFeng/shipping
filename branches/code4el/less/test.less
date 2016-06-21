@@ -1,0 +1,45 @@
+@font-size: 13px;
+.class {
+  font-size: @font-size;
+}
+
+@font-size2: @font-size+12;
+.class2 {
+  font-size: @font-size2
+}
+
+@color: #11ee33;
+@color2: @color+#1111ff;
+.class3 {
+  @color: #ee3322;
+  color: @color;
+}
+
+@color: #eeffff;
+.class4 {
+  color: @color;
+}
+
+#border-radius(@redius:4px) {
+  -moz-border-radius: @redius;
+  -webkit-border-radius: @redius;
+  border-radius: @redius;
+}
+
+.class6 {
+  #border-radius(6px);
+}
+
+.boxShadow(@x:0,@y:0,@blur:1px,@color:#000) {
+
+  width: @x;
+  height: @y;
+  -moz-box-shadow: @arguments;
+  -webkit-box-shadow: @arguments;
+  box-shadow: @arguments;
+
+}
+
+.boxShadow1 {
+  .boxShadow(2px, 2px, 3px, #f36221);
+}

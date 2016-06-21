@@ -1,0 +1,38 @@
+<div class="myyilian" ng-controller="questionVerifyCtrl">
+    <div class="nav-title">
+        所在位置 -
+        <a href="#/myyilian/index" class="font-gray">我的易联</a> -
+        <a href="#/safety/index" class="font-gray">安全管理</a> -
+        <span class="font-orange">密保问题</span>
+    </div>
+    <div class="row mt-20">
+        <div class="col-md-2">
+            <hls-include url="'views/myyilian/menu.html'"/>
+        </div>
+        <form name="questionValidateForm">
+            <div class="col-md-9 ml-20 font-13 question">
+                <p>为了避免遗忘，请您填写真实信息，这将帮您以后通过回答问题来找回密码。</p>
+                <ul class="issue">
+                    <li>问题一：
+                        <select class="slt" ng-mouseover="judge(1)"  ng-change="question(1)" ng-model="selected1" ng-options="x.id as x.name for x in issue1"></select>
+                    </li>
+                    <li>&emsp;答案： <input  type="text" ng-model="answer1"
+                                            required
+                                            dir-directive-ext/></li>
+                    <li>问题二：
+                        <select class="slt" ng-mouseover="judge(2)" ng-change="question(2)" ng-model="selected2" ng-options="x.id as x.name for x in issue2"></select>
+                    </li>
+                    <li>&emsp;答案： <input type="text" ng-model="answer2" required dir-directive-ext></li>
+                    <li>问题三：
+                        <select class="slt" ng-mouseover="judge(3)" ng-change="question(3)" ng-model="selected3" ng-options="x.id as x.name for x in issue3"></select>
+                    </li>
+                    <li>&emsp;答案： <input type="text" ng-model="answer3" required dir-directive-ext></li>
+                    <li>
+                        <button class="btn btn-info ml-50" ng-click="submit(questionValidateForm.$invalid)">确定</button>
+                        <button class="btn btn-default ml-20" ng-click="goBack()">返回</button>
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+</div>

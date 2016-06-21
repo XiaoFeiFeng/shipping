@@ -1,0 +1,29 @@
+<div class="container" ng-controller="consultManageCtrl">
+
+    <div class="row text-center">
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-tab ph-20" ng-click="changeState(classify)" ng-repeat="classify in classifys">
+                <input type="radio" name="newsClassify" value="0"/>
+                <span ng-bind="classify.name"></span>
+            </label>
+        </div>
+    </div>
+
+
+    <div class="row mt-40 mv-30">
+        <div class="col-md-1 text-right"><span class="btn btn-default" ng-bind="pitchonName"></span></div>
+        <div class="col-md-2 mt-5 text-right">联系人名字：</div>
+        <div class="col-md-2"><input class="form-control" ng-model="contactName" type="text"></div>
+        <div class="col-md-2 mt-5 text-right">联系人QQ：</div>
+        <div class="col-md-2"><input class="form-control" ng-model="contactQQ" type="text"></div>
+        <div class="col-md-3 text-center">
+            <a class="btn btn-info"  ng-click="addProduct()" >
+                <span ng-bind="classifyBtn"></span>
+            </a>
+        </div>
+    </div>
+
+    <div>
+        <hls-grid grid-options="gridOptions"></hls-grid>
+    </div>
+</div>

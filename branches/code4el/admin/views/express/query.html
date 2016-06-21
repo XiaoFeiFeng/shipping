@@ -1,0 +1,13 @@
+<div class="window-title clearfix">
+    <p >快递信息查询</p>
+    <i class="fa fa-close" ng-click="cancel()"></i>
+</div>
+<div class="window-body">
+        <div class="query">
+            请输入 <span ng-bind="item.name" class="font-red"></span> 快递的运单号<br><br>
+            <input type="text" class="form-control" ng-model="order">&emsp;
+            <button class="btn btn-info" ng-click="query()">查询</button>
+        </div>
+    <div id="content" style="margin-top:35px;margin-left:170px;"></div>
+    <div id="img" ng-if="loading" class="text-center"><img src="img/wait.gif" width="450" height="350"></div>
+</div>

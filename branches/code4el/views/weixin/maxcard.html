@@ -1,0 +1,11 @@
+
+<div class="clearfix" style="height:20px;">
+    <i class="fa fa-close title-close" style="font-size:18px;" ng-click="cancel()"></i>
+</div>
+<div style="height:380px;text-align:center;font-size:14px;">
+    <div style="margin-left:35px;text-align: left;">微信登录</div>
+    <img ng-src="{{img}}" width="180" height="180" style="margin-top:70px;">
+    <div ng-if="!countdown" style="margin-top: 30px;">
+        <span class="font-red" ng-bind="timerNum"></span><span class="font-red">秒</span> 无操作将为您关闭登录窗口
+    </div>
+</div>

@@ -1,0 +1,109 @@
+<div class="myyilian" ng-controller="orderMyOrderCtrl">
+    <div class="nav-title">
+        所在位置 - <a href="#/myyilian/index" class="font-orange">我的易联</a> - 我的订单
+    </div>
+    <div class="row mt-20 font-13">
+        <div class="col-md-2">
+            <hls-include url="'views/myyilian/menu.html'"/>
+        </div>
+        <div class="col-md-9 ml-20">
+            <div class="row ">
+                <div class="col-md-2">
+                    <select class="form-control" ng-change="intervalChange()" ng-model="interval">
+                        <option value="1">一个月内</option>
+                        <option value="3">三个月内</option>
+                        <option value="6">六个月内</option>
+                        <option value="12">一年内</option>
+                        <option value="0">全部时间</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mv-15">
+                <div class="col-md-8 btn-group" data-toggle="buttons">
+                    <label class="btn btn-tab ph-20 active" ng-click="findOrder()">
+                        <input type="radio" id="order_all" name="orderstate" value="1"/>全部订单
+                    </label>
+                    <label class="btn btn-tab ph-20" ng-click="findOrder(0)">
+                        <input type="radio" id="order_obligation" name="orderstate" value="2"/>待付款
+                        <span class="font-red">(2)</span>
+                    </label>
+                    <label class="btn btn-tab ph-20" ng-click="findOrder(1)">
+                        <input type="radio" id="order_nrcy" name="orderstate" value="3"/>待收货
+                    </label>
+                    <label class="btn btn-tab ph-20" ng-click="findOrder(2)">
+                        <input type="radio" id="order_finish" name="orderstate" value="4"/>已完成
+                    </label>
+                    <label class="btn btn-tab ph-20" ng-click="findOrder(-1)">
+                        <input type="radio" id="order_cancel" name="orderstate" value="5"/>已取消
+                    </label>
+                </div>
+                <div class="col-md-4 text-right pt-5">
+                    <div class="input-group pull-right">
+                        <input type="text" class="form-control input-md" placeholder="输入订单号查询" ng-model="searchValue">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default btn-md" ng-click="search()">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <ul class="order-info clearfix">
+                    <li class="line-height-25">起运城市<br>目的国家</li>
+                    <li class="line-height-25">货物类型<br>货物重量</li>
+                    <li class="line-height-50">运输渠道</li>
+                    <li class="line-height-50">收件人</li>
+                    <li class="line-height-50">订单状态</li>
+                    <li class="line-height-50">操作</li>
+                </ul>
+                <div ng-repeat="order in orders track by $index">
+                    <div class="info-title clearfix">
+                        <ul>
+                            <li><span class="font-gray font-12 ph-10" ng-bind="getDate(order.created_time)"></span></li>
+                            <li><span class="font-gray">订单号：
+                            </span>
+                                <span ng-bind="order.code"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <ul class="info-details">
+                        <li class="pt-15">
+                            <span ng-bind="order.fromCity"></span><br><span ng-bind="order.toCountry"></span>
+                        </li>
+                        <li class="pt-15">
+                            <span ng-bind="order.customsInfo.goodsType"></span><br><span
+                                ng-bind="order.weight+'(KG)'"></span>
+                        </li>
+                        <li class="pt-15">
+                            <span ng-bind="order.transportWayCName"></span>
+                            <!--<br><span class="font-orange">DHL</span></li>-->
+                        <li class="line-height-70">
+                            <span ng-bind="order.to.name"></span>
+                        </li>
+                        <li class="line-height-70">
+                        <span ng-class="{'0':'font-orange','-1':'font-gray','2':''}[order.state]"
+                              ng-bind="getState(order.state)"></span>
+                        </li>
+                        <li class="mt-5">
+                            <div>
+                                <a ng-if="order.state=='0'" href="" class="font-orange">支付</a><br>
+                                <a href="javascript:void(0)" ng-click="openDetail(order.code)"
+                                   class="font-orange">详情</a><br>
+                                <a class="font-orange" href="javascript:void(0)"
+                                   ng-if="order.state!='2'&&order.state!='-1'"
+                                   ng-click="cancel(order._id.$id)">
+                                    取消
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row text-center">
+                    <hls-pagination total-items="totalItems" ng-model="currentPage" class="pagination-sm"
+                                    page-size="pageSize" ng-change="pageChange()"></hls-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

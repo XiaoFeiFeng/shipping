@@ -1,0 +1,53 @@
+<div class="myel" ng-controller="addressIndexCtrl">
+    <div class="nav-title">
+        所在位置 -
+        <a href="#/myel/index" class="font-gray">我的易联</a> -
+        <span class="font-orange">地址管理</span>
+    </div>
+    <div class="row mt-20">
+        <div class="col-md-2">
+            <hls-include url="'views/myel/menu.html'"/>
+        </div>
+        <div class="col-md-9 ml-20">
+            <div class="address-manage">
+                <a class="btn btn-info" ng-click="edit()">添加地址</a>
+                <a class="btn btn-info" ng-click="deleteAddress()">删除地址</a>
+            </div>
+            <div ng-if="hint" class="null-field">
+                <span class="glyphicon glyphicon-comment font-28 text-info"></span>
+                当前没有地址请点击左上方按钮来添加!
+            </div>
+            <div ng-if="exist">
+                <ul class="address-title clearfix no-margin">
+                    <li class="col-md-1"><input type="checkbox" ng-model="isAllChecked"
+                                                ng-change="isAllChange(isAllChecked)"></li>
+                    <li class="col-md-2">收货人姓名</li>
+                    <li class="col-md-2">联系方式</li>
+                    <li class="col-md-5">地址</li>
+                    <li class="col-md-1">是否默认</li>
+                    <li class="col-md-1">操作</li>
+                </ul>
+                <ul class="address-info font-13 no-margin" ng-repeat="item in user.address">
+
+                    <li class="col-md-1"><input type="checkbox" ng-model="item.check" ng-change="isOneChange()"></li>
+                    <li class="col-md-2" ng-bind="item.name"></li>
+                    <li class="col-md-2" ng-bind="item.tel"></li>
+                    <li class="col-md-5">
+                        <span ng-bind="item.district.cn[0]"></span>
+                        <span ng-bind="item.district.cn[1]"></span>
+                        <span ng-bind="item.district.cn[2]"></span>
+                        <span ng-bind="item.address"></span>
+                    </li>
+                    <li class="col-md-1"><input type="checkbox" name="selected" ng-model="item.is_default"
+                                                ng-change="checked($index)"></li>
+                    <li class="col-md-1"><a href="" class="font-orange" ng-click="edit(item,$index)">编辑</a></li>
+                    <div ng-if="item.is_default" class="selected-trigon">
+
+                        <img src="img/icon/default.png" width="23" height="23">
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>

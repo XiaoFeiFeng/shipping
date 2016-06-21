@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>互联速物流平台</title>
+    <meta name="description" content=""/>
+    <meta name="keywords" content="贸易宝 进销存系统 ERP系统 Ebay进销存 速卖通订单ERP 速卖通进销存 Amazon进销存 企业进销存定制 ERP系统定制 CpowerSoft.COM"/>
+    <meta name="robots" content="index, follow"/>
+    <link rel="shortcut icon" href="/admin/img/favicon.png">
+    <link href="http://192.168.100.254/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../../common/css/hls.css" rel="stylesheet" type="text/css"/>
+
+
+    <script type="text/javascript" src="http://192.168.100.254/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="http://192.168.100.254/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=7Dj7oIqDRZ11omtI3luxTvkd"></script>
+    <script type="text/javascript" src="map.js"></script>
+
+</head>
+<body>
+<div class="container text-center">
+    <div id="topDiv" class="row pv-15 text-left">
+        <div class="col-md-3 text-left">
+            <a href="/shipping">
+                <img src="../img/logo.png" class="yilian"/>
+            </a>
+        </div>
+        <div class="col-md-8 pt-15 pl-0">
+            <div class="input-group">
+                <input id="searchText" type="text" class="form-control"/>
+                <div class="input-group-btn pl-5">
+                    <button class="btn btn-info" onclick="searchPoint()">
+                        <span>搜索</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 text-left ph-30">
+            <dl id="info">
+            </dl>
+            <div class="row pv-10">
+                <button class="btn btn-link btn-sm" onclick="closeWindow()">
+                    地址错误，取消操作
+                </button>
+            </div>
+            <div class="row">
+                <button id="btnChangeAddress" class="btn btn-link btn-sm">
+                    修改客户地址
+                </button>
+            </div>
+        </div>
+        <div id="rightDiv" class="col-md-9 text-center">
+            <div class="row" id="mapdiv"></div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="addressModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title">修改客户地址</h4>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12 form-group has-feedback">
+                        <textarea class="form-control input-lg" rows="4" style="resize: none" name="txtAddress"
+                                  id="txtAddress"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="changeAddress()">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

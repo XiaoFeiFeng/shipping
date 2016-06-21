@@ -1,0 +1,60 @@
+<div class="myel" ng-controller="safetyIndexCtrl">
+    <div class="nav-title">
+        所在位置 -
+        <a href="#/myel/index" class="font-gray">我的易联</a> -
+        <a href="#/safety/index" class="font-orange">安全管理</a>
+    </div>
+    <div class="row mt-20">
+        <div class="col-md-2">
+            <hls-include url="'views/myel/menu.html'"/>
+        </div>
+        <div class="col-md-9 ml-20 font-13">
+            <div class="verify">
+                <div class="col-md-9">
+                    <span class="glyphicon glyphicon-ok font-28 font-blue"></span>&emsp;
+                    <b class="font-22">手机验证</b>&emsp;&emsp;
+                    <span>验证后，账户余额资金变动时，会短信提醒您</span>
+                </div>
+
+                <div class="col-md-3 text-center">
+                    <a href="#/safety/telVerify" class="font-blue">修改</a>
+                </div>
+            </div>
+            <div class="verify-t">
+                <div class="col-md-9">
+                    <span class="glyphicon glyphicon-cog font-28 font-orange"></span>&emsp;
+                    <b class="font-22">邮箱验证</b>&emsp;&emsp;
+                    <span>验证后，方便快速找回密码，安全性更高</span>
+                </div>
+
+                <div class="col-md-3 text-center">
+                    <a ng-if="email" href="#/safety/emailVerify" class="font-blue">修改</a>
+                    <a ng-if="!email" href="#/safety/emailVerify" class="btn btn-info">立即设置</a>
+                </div>
+            </div>
+            <div class="verify-t">
+                <div class="col-md-9">
+                    <span class="glyphicon glyphicon-cog font-28 font-orange"></span>&emsp;
+                    <b class="font-22">密保问题</b>&emsp;&emsp;
+                    <span>设置后，方便快速找回密码，安全性更高</span>
+                </div>
+
+                <div class="col-md-3 text-center">
+                    <a ng-if="securityQuestion" href="#/safety/issuereset" class="font-blue">修改</a>
+                    <a ng-if="!securityQuestion" href="#/safety/questionVerify" class="btn btn-info">立即设置</a>
+                </div>
+            </div>
+            <div class="verify-t">
+                <div class="col-md-9">
+                    <span class="glyphicon glyphicon-ok font-28 font-blue"></span>&emsp;
+                    <b class="font-22">登陆密码</b>&emsp;&emsp;
+                    <span>设置较复杂的密码，以保障账号安全</span>
+                </div>
+
+                <div class="col-md-3 text-center">
+                    <a href="#/safety/changePass" class="font-blue">修改</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

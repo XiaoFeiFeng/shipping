@@ -1,0 +1,21 @@
+<div class="row" ng-controller="newsIndexCtrl">
+    <div class="col-md-8">
+        <table class="table text-left border-0">
+            <tr>
+                <th colspan="2">新闻资讯</th>
+            </tr>
+            <tr class="new_bg font-13" ng-repeat="item in items.data" ng-click="new_details(item._id.$id)">
+                <td width="80%"><span ng-bind="item.title"></span></td>
+                <td><span class="font-gray" ng-bind="getDate(item.created_time)"></span></td>
+            </tr>
+
+        </table>
+        <div>
+            <hls-pagination total-items="totalItems" ng-model="currentPage" class="pagination-sm"
+                            page-size="pageSize" ng-change="pageChange()"></hls-pagination>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <hls-include url="'views/quote/search.html'"/>
+    </div>
+</div>

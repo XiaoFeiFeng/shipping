@@ -1,0 +1,67 @@
+<form name="compileValidateForm" >
+<div class="window-title clearfix">
+    <p class="title-font">修改地址</p>
+    <i class="fa fa-close title-close" ng-click="cancel()"></i>
+</div>
+<ul class="mt-20">
+    <li class="clearfix">
+        <div class="content-labar"><span class="font-red">*</span> 收货人姓名：</div>
+        <div class="content-input">
+            <input type="text"
+                   class="form-control"
+                   ng-model="result.name"
+                   placeholder="请填写收货人姓名"
+                   required
+                   dir-directive-ext/>
+        </div>
+    </li>
+    <li class="clearfix">
+        <div class="content-labar"><span class="font-red">*</span> 所在地区：</div>
+        <div class="content-input">
+            <city-select ng-model="city.cn"></city-select>
+        </div>
+    </li>
+    <li class="clearfix">
+        <div class="content-labar"><span class="font-red">*</span> 详细街道：</div>
+        <div class="content-textarea">
+            <textarea class="form-control" rows="3"
+                      ng-model="result.address"
+                      placeholder="请填写收货人详细地址"
+                      required
+                      ng-minlength="5"
+                      minlengthmsg="最小长度为5"
+                      ng-maxlength="30"
+                      maxlengthmsg="最大长度为30"
+                      dir-directive-ext/>
+
+            </textarea>
+        </div>
+    </li>
+    <li class="clearfix">
+        <div class="content-labar"><span class="font-red">*</span> 电话号码：</div>
+        <div class="content-input">
+            <input type="text"
+                   class="form-control"
+                   ng-model="result.tel"
+                   placeholder="请填写收货人电话"
+                   required
+                   dir-range="10000000000,19999999999"
+                   dirrangemsg="手机号码格式错误"
+                   dir-directive-ext/>
+        </div>
+    </li>
+    <li class="clearfix">
+        <div class="content-labar"></div>
+        <div class="content-input">
+            <input type="checkbox" ng-model="result.is_default"> 设置为默认地址
+        </div>
+    </li>
+    <li class="clearfix">
+        <div class="content-labar"></div>
+        <div class="content-input">
+            <button class="btn btn-info" ng-click="save(compileValidateForm.$invalid)">保存</button>
+            <button class="btn btn-default ml-20" ng-click="cancel()">取消</button>
+        </div>
+    </li>
+</ul>
+</form>

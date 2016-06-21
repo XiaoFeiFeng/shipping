@@ -1,0 +1,15 @@
+<div class="container" ng-controller="newsIndexCtrl">
+    <table class="table text-left border-0 ">
+        <tr class="x-tr">
+            <th colspan="2">新闻资讯</th>
+        </tr>
+        <tr class="new_bg font-13 content" ng-repeat="item in items.data" ng-click="new_details(item._id.$id)">
+            <td width="80%" class="content"><span ng-bind="item.title"></span></td>
+            <td><span class="font-gray" ng-bind="getDate(item.created_time)"></span></td>
+        </tr>
+    </table>
+    <div>
+        <hls-pagination total-items="totalItems" ng-model="currentPage" class="pagination-sm"
+                        page-size="pageSize" ng-change="pageChange()"></hls-pagination>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<div ng-controller="userDoResetCtrl">
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1">
+            <a href="/">
+                <img src="img/logo.png" class="yilian"/>
+            </a>
+        </div>
+        <div class="col-md-2 form-title">重置密码</div>
+    </div>
+    <div class="row mt-20 text-left">
+        <div class="col-md-4 col-md-offset-4 border-ccc ph-30 pv-30">
+            <div class="fl-bun">
+                <a href="/" class="btn btn-hls btn-xs">返回首页</a>
+            </div>
+            <form name="resetPassForm" id="resetPassForm">
+                <div class="row form-group has-feedback">
+                    <label class="control-label" for="password">
+                        <small>新密码</small>
+                    </label>
+                    <input type="password" class="form-control input-lg" id="password" name="password" placeholder="新密码"
+                           ng-model="user.password"
+                           required requiredmsg="请输入密码" ng-minlength="6" minlengthmsg="密码最小长度为6位" dir-directive-ext>
+                </div>
+
+                <div class="row form-group has-feedback">
+                    <label class="control-label" for="confirmPassword">
+                        <small>确认密码</small>
+                    </label>
+                    <input type="password" class="form-control input-lg" id="confirmPassword" name="confirmPassword"
+                           placeholder="确认密码"
+                           ng-model="user.confirmPassword" required requiredmsg="请再次输入密码"
+                           ng-minlength="6" minlengthmsg="密码最小长度为6位" dir-equal="password" direqualmsg="两次输入密码不一致"
+                           dir-directive-ext>
+                </div>
+                <div class="row form-group pv-10 text-center" ng-show="error">
+                    <span class="font-red font-bold" ng-bind="error"></span>
+                </div>
+                <div class="row form-group text-center pt-25">
+                    <button type="submit" class="btn btn-hls btn-block btn-lg"
+                            ng-click="submitForm(resetPassForm.$invalid)">
+                        <span class="font-14">修改密码</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

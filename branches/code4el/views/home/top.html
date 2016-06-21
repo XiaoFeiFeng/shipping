@@ -1,0 +1,157 @@
+
+<div class="text-right" ng-controller="homeTopCtrl">
+
+    <div class="pt-20" ng-cloak ng-if="!logined">
+        <!--<a class="xind" class="font-black" href="/user.html#/user/login">登录 </a>|-->
+        <!--<a  class="xind" class="font-black" href="/user.html?#/user/register"> 注册</a>-->
+        <!--<a class="xind" class="font-black" href="http://kd.szice.net:8086/xms/html/login.html?loginRedirectUrl=%2Fclient%2Fmember_center%21index.action">登录 </a>-->
+        <a class="btn btn-info" href="#/user/temporary">登录</a>&nbsp;
+        <a class="btn btn-info" onclick="javascript:alert('请联系客服')">注册</a>
+    <!--    <a class="toum" href="" ng-click="richScan()" title="微信登录"><img  src="img/icon/weixin.png"/></a>
+
+        <a class="toum"  href="https://graph.qq.com/oauth2.0/authorize?client_id=101194509&amp;response_type=token&amp;scope=all&amp;redirect_uri=http%3A%2F%2Fwww.93myb.com%2Fapi%2Ftx%2FQQ_connect_callback.php?state=ylsd"
+           title="QQ登录" ng-click="setPph()"><img src="img/icon/QQ.png"/></a>
+
+        <a class="toum" href="http://gw.api.alibaba.com/auth/authorize.htm?client_id=9223302&redirect_uri=http://www.93myb.com/api/aliexpress/ylsd_callback.php&site=aliexpress&_aop_signature=0ECD972489CAE5F191222A2D6B4083C4C5C8239C"
+           title="速卖通登录" ng-click="setPph()"><img src="img/icon/Eliexpress.png"/></a>-->
+    </div>
+    <div class="pull-right mt-15" ng-cloak ng-if="logined">
+        <ul class="nav navbar-nav">
+            <!-- 上门取件消息中心-->
+            <li class="dropdown messages-menu" ng-if="showMerchantIcon">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-car"></i>
+                     <span class="label label-danger hls-user-label" ng-show="notifys.pickups.length"
+                           ng-bind="notifys.pickups.length"></span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li class="header">
+                        <span class="font-12">上门取件</span>
+                    </li>
+                    <li>
+                        <!-- inner menu: contains the actual data -->
+                        <ul class="menu">
+                            <li ng-repeat="item in notifys.pickups"><!-- start message -->
+                                <a href="javascript:void(0)" ng-click="notifyClick(item)">
+                                    <h4>
+                                        <span ng-bind="item.data"></span>
+                                        <small><i class="fa fa-clock-o"></i>
+                                            <span ng-bind="getDate(item.created_time)"></span>
+                                        </small>
+                                    </h4>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="footer"><a href="#/notify/index">查看所有</a></li>
+                </ul>
+            </li>
+
+            <!-- 订单消息中心 -->
+            <li class="dropdown messages-menu">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-database"></i>
+                    <span class="label label-danger hls-user-label" ng-show="notifys.orders.length"
+                          ng-bind="notifys.orders.length"></span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li class="header">
+                        <span class="font-12">订单消息</span>
+                    </li>
+                    <li class="body">
+                        <!-- inner menu: contains the actual data -->
+                        <ul class="menu">
+                            <li ng-repeat="item in notifys.orders">
+                                <a href="javascript:void(0)" ng-click="notifyClick(item)">
+                                    <h4>
+                                        <span ng-bind="item.data"></span>
+                                        <small><i class="fa fa-clock-o"></i>
+                                            <span ng-bind="getDate(item.created_time)"></span>
+                                        </small>
+                                    </h4>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="footer">
+                        <a href="#/notify/index">查看所有</a>
+                    </li>
+                </ul>
+            </li>
+            <!-- 系统消息中心 -->
+            <li class="dropdown messages-menu">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-flag-o"></i>
+                     <span class="label label-danger hls-user-label" ng-show="notifys.clientorders.length"
+                           ng-bind="notifys.clientorders.length"></span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li class="header">
+                        <span class="font-12">系统消息</span>
+                    </li>
+                    <li class="body">
+                        <!-- inner menu: contains the actual data -->
+                        <ul class="menu">
+                            <li ng-repeat="item in notifys.clientorders">
+                                <a href="javascript:void(0)" ng-click="notifyClick(item)"
+                                >
+                                    <h4>
+                                        <span ng-bind="item.data"></span>
+                                        <small><i class="fa fa-clock-o"></i>
+                                            <span ng-bind="getDate(item.created_time)"></span>
+                                        </small>
+                                    </h4>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="footer"><a href="#/notify/index">查看所有</a></li>
+                </ul>
+            </li>
+
+            <!-- User Account: style can be found in dropdown.less -->
+            <li class="dropdown user user-menu">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                    <img src="img/avatar.png" class="user-image" alt="User Image">
+                    <span ng-bind="userInfo.name"></span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <!-- User image -->
+                    <li class="user-header">
+                        <img src="img/avatar.png" class="img-circle" alt="User Image">
+                        <p>
+                            <strong>物流商盟</strong>
+                            <small ng-bind="userInfo.realname"></small>
+                        </p>
+                    </li>
+                    <!-- Menu Body -->
+                    <li class="user-body font-12">
+                        <div class="text-center">
+                            <a href="#/order/myorder" class="ph-5 font-12">
+                                <span>我的订单</span>
+                            </a>
+                            <a href="#/personInfo/index" class="ph-5 font-12">
+                                <span>帐号管理</span>
+                            </a>
+                            <a href="#/notify/index" class="ph-5 font-12">
+                                <span>消息中心</span>
+                            </a>
+                            <a href="#/myel/index" class="ph-5 font-12">
+                                <span>个人中心</span>
+                            </a>
+                        </div>
+                    </li>
+                    <!-- Menu Footer-->
+                    <li class="user-footer padding-10">
+                        <div class="text-right">
+                            <a href="javascript:void(0)" class="font-12 font-black" ng-click="logout()">
+                                <span>退出登录</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <!-- Control Sidebar Toggle Button -->
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="container" ng-controller="articleIndexCtrl">
+    <a class="btn btn-info" href="#/article/edit">
+        <i class="fa fa-plus"></i>
+        <span>添加公告</span>
+    </a>
+    <div>
+        <hls-grid grid-options="gridOptions"></hls-grid>
+    </div>
+    <div>
+        <hls-pagination total-items="totalItems" ng-model="currentPage" class="pagination-sm"
+                        page-size="pageSize" ng-change="pageChange()"></hls-pagination>
+    </div>
+</div>

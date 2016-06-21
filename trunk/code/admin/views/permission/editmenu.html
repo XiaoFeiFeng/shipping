@@ -1,0 +1,130 @@
+<style>
+    .hls-label {
+        background-color: orange;
+        margin: 8px;
+        padding: 8px;
+        cursor: pointer;
+        display: inline;
+        font-size: 75%;
+        font-weight: bold;
+        line-height: 1;
+        color: #fff;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: .25em;
+    }
+</style>
+<div class="box box-info">
+    <div class="box-header with-border">
+        <h3 class="box-title" ng-bind="isEdit?'编辑菜单': '添加菜单'"></h3>
+        &nbsp;&nbsp;<span>父节点&nbsp;:&nbsp;{{menu.pname}}</span>
+        <i style="cursor:pointer" class="fa fa-close pull-right" ng-click="cancel()"></i>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+    <form class="form-horizontal" name="addorEditForm">
+        <div class="box-body">
+            <div class="form-group">
+                <label for="inputName" class="col-sm-2 control-label">菜单名</label>
+
+                <div class="col-sm-8">
+                    <input type="input" class="form-control" id="inputName" placeholder="请输入菜单名" required
+                           ng-model="menu.name" requiredmsg="请输入菜单名" dir-directive-ext>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputCode" class="col-sm-2 control-label">菜单Code</label>
+
+                <div class="col-sm-8">
+                    <input type="input" class="form-control" id="inputCode" placeholder="请输入菜单Code" required
+                           ng-model="menu.code" requiredmsg="请输入菜单Code" dir-directive-ext>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputUrl" class="col-sm-2 control-label">页面地址</label>
+
+                <div class="col-sm-8">
+                    <input type="input" class="form-control" id="inputUrl" placeholder="菜单地址如：#/permission/users"
+                           required
+                           ng-model="menu.url" requiredmsg="请输入菜单跳转地址" dir-directive-ext>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputSort" class="col-sm-2 control-label">排序码</label>
+
+                <div class="col-sm-8">
+                    <input type="input" class="form-control" id="inputSort" placeholder="排序码(数字越小越靠前)"
+                           required
+                           ng-model="menu.sort" requiredmsg="请输入排序码" dir-directive-ext>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputIcon" class="col-sm-2 control-label">菜单图标</label>
+
+                <div class="col-sm-8">
+                    <div class=" input-group">
+                        <span class="input-group-addon"> <i class="{{menu.icon}}"></i></span>
+                        <input type="input" class="form-control" id="inputIcon" placeholder="bootstrap 图标 例:fa fa-map"
+                               ng-model="menu.icon">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">权限控制点</label>
+
+                <div class="col-sm-8 ">
+                    <div class="box box-solid">
+                        <div class="box-header">
+                            <div class="hls-label"
+                                 ng-repeat="item in menu.permissions track by $index" ng-click="removePermission(item)">
+                                <span ng-bind="item.name"></span>
+                                &nbsp; <span>&times;</span>
+                            </div>
+                        </div>
+                        <div class="box-body no-padding">
+                            <div class="col-md-3">
+                                <input type="input" class="form-control"
+                                       placeholder="权限名" ng-model="permission.name">
+                            </div>
+                            <div class="col-md-3 no-padding">
+                                <input type="input" class="form-control"
+                                       placeholder="权限标识" ng-model="permission.code">
+                            </div>
+                            <div class="col-md-3 ">
+                                <button type="button" title="添加权限" class="btn bg-orange" ng-click="addPermission()">
+                                    <i class="fa fa-upload"> </i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="ckbused" class="col-sm-2 control-label">状态</label>
+
+                <div class="col-sm-8 ">
+                    <div class="checkbox">
+                        <label>
+                            <input id="ckbused" type="checkbox" ng-model="menu.used"> 启用
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer text-center">
+            <button type="button" class="btn btn-success" ng-disabled="addorEditForm.$invalid"
+                    ng-click="submitForm()">
+                <i class="fa fa-check"> </i> 保存
+            </button>
+            <button type="button" class="btn bg-purple" ng-click="reset()">
+                <i class="fa fa-mail-reply"> </i> 重置
+            </button>
+            <button type="button" class="btn bg-navy" ng-click="cancel()">
+                <i class="fa fa-close"> </i> 关闭
+            </button>
+        </div>
+        <!-- /.box-footer -->
+    </form>
+</div>

@@ -1,0 +1,29 @@
+<div class="myel" ng-controller="notifyIndexCtrl">
+    <div class="nav-title">
+        所在位置 - <a href="#/myel/index" class="font-orange">我的易联</a> - 消息中心
+    </div>
+    <div class="row mt-20 font-13">
+        <div class="col-md-2">
+            <hls-include url="'views/myel/menu.html'"/>
+        </div>
+        <div class="col-md-9 ml-20">
+            <div class="row" ng-repeat="item in notifications track by $index">
+                <div class="col-md-12 text-left pv-10">
+                    <span class="font-gray" ng-bind="getDate(item.created_time)"></span>
+                    <a href="javascript:void(0)" ng-click="jumptopage(item)">
+                        <span ng-bind="item.data"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="row text-center">
+                <hls-pagination total-items="totalItems" ng-model="currentPage" class="pagination-sm"
+                                page-size="pageSize" ng-change="pageChange()"></hls-pagination>
+            </div>
+
+            <div class="text-center" ng-show="!notifications||notifications.length==0">
+
+                <h5>暂无消息</h5>
+            </div>
+        </div>
+    </div>
+</div>

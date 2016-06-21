@@ -1,0 +1,102 @@
+<div ng-controller="homeTopCtrl">
+    <div class="text-right" ng-cloak ng-if="!logined">
+        <a href="/shipping/user.html#/user/login">登录 </a>|
+        <a href="/shipping/user.html?#/user/register"> 注册</a>
+        <a href="" ng-click="richScan()" title="微信登录"><img src="img/icon/weixin.png"/></a>
+
+        <a href="https://graph.qq.com/oauth2.0/authorize?client_id=101194509&amp;response_type=token&amp;scope=all&amp;redirect_uri=http%3A%2F%2Fwww.93myb.com%2Fapi%2Ftx%2FQQ_connect_callback.php?state=ylsd"
+           title="QQ登录"><img src="img/icon/QQ.png"/></a>
+
+        <a href="http://gw.api.alibaba.com/auth/authorize.htm?client_id=9223302&redirect_uri=http://www.93myb.com/api/aliexpress/ylsd_callback.php&site=aliexpress&_aop_signature=0ECD972489CAE5F191222A2D6B4083C4C5C8239C"
+           title="速卖通登录"><img src="img/icon/Eliexpress.png"/></a>
+    </div>
+    <div class="text-right" ng-cloak ng-if="logined">
+        <ul class="nav navbar-nav pull-right mv-10">
+            <!-- Messages: style can be found in dropdown.less-->
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-envelope-o"></i>
+                    <span class="label label-success hls-user-label">4</span>
+                </a>
+                <div class="dropdown-menu ">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <span>您有4条系统消息</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a class="btn" href="#">查看所有</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!-- Notifications: style can be found in dropdown.less -->
+            <li class="dropdown" ng-if="showMerchantIcon">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-bell-o"></i>
+                    <span class="label label-warning hls-user-label">10</span>
+                </a>
+                <div class="dropdown-menu ">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <span>您有10个上门取件单</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a class="btn" href="#">查看所有</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!-- Tasks: style can be found in dropdown.less -->
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-flag-o"></i>
+                    <span class="label label-danger hls-user-label" ng-bind="notifys.orders.length"></span>
+                </a>
+                <div class="dropdown-menu ">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <span>您有{{notifys.orders.length}}条订单需要处理</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a class="btn" href="#">查看所有</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!-- User Account: style can be found in dropdown.less -->
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                    <span ng-bind="userInfo.name"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#/order/myorder" class="btn hls-user-msg">
+                            <span>我的订单</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#/personInfo/index" class="btn btn-link hls-user-msg">
+                            <span>帐号管理</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#/myyilian/index" class="btn btn-link hls-user-msg">
+                            <span>个人中心</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="btn btn-link hls-user-msg" ng-click="logout()">
+                            <span>退出登录</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

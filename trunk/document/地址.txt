@@ -1,0 +1,4 @@
+ÇşµÀ¹ÜÀí
+http://kd.szice.net:8086/xms/admin/page!login.action 
+user:hlsu
+pass:huliansu@2013

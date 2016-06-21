@@ -1,0 +1,42 @@
+<div class="myyilian" ng-controller="issueresetCtrl">
+    <div class="nav-title">
+        所在位置 -
+        <a href="#/myyilian/index" class="font-gray">我的易联</a> -
+        <a href="#/safety/index" class="font-gray">安全管理</a> -
+        <span class="font-orange">密保问题</span>
+    </div>
+    <div class="row mt-20">
+        <div class="col-md-2">
+            <hls-include url="'views/myyilian/menu.html'"/>
+        </div>
+        <form name="questionValidateForm">
+            <div class="col-md-9 ml-20 font-13 question">
+                <p>请填写您的密保问题，之后才能进一步设置。如忘记密保请跟客服联系</p>
+                <ul class="issue">
+                    <li>问题一：
+                        <select class="slt">
+                            <option ng-bind="user.security.issue1"></option>
+                        </select>
+                    </li>
+                    <li>&emsp;答案： <input  type="text" ng-model="answer1" required dir-directive-ext/></li>
+                    <li>问题二：
+                        <select class="slt">
+                            <option ng-bind="user.security.issue2"></option>
+                        </select>
+                    </li>
+                    <li>&emsp;答案： <input type="text" ng-model="answer2" required dir-directive-ext></li>
+                    <li>问题三：
+                        <select class="slt">
+                            <option ng-bind="user.security.issue3"></option>
+                        </select>
+                    </li>
+                    <li>&emsp;答案： <input type="text" ng-model="answer3" required dir-directive-ext></li>
+                    <li>
+                        <button class="btn btn-info ml-50" ng-click="submit(questionValidateForm.$invalid)">确定</button>
+                        <button class="btn btn-default ml-20" ng-click="goBack()">返回上一页</button>
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+</div>

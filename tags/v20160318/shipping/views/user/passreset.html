@@ -1,0 +1,70 @@
+<div ng-controller="userPassResetCtrl">
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1">
+            <a href="/shipping">
+                <img src="img/logo.png" class="yilian"/>
+            </a>
+        </div>
+        <div class="col-md-2 form-title">重置密码</div>
+    </div>
+    <div class="row mt-20 text-left">
+        <div class="col-md-4 col-md-offset-4 form-border ph-30">
+            <div class="fl-bun">
+                <a href="#/user/login" class="btn btn-hls btn-xs">返回登录</a>
+            </div>
+            <form id="passResetForm" name="passResetForm">
+                <div class="row form-group  has-feedback">
+                    <label class="control-label " for="inputUser">
+                        <small>用户名</small>
+                    </label>
+                    <input type="text" ng-model="user.name" class="form-control input-lg" id="inputUser"
+                           placeholder="请输入用户名"
+                           required dir-directive-ext requiredmsg="请输入用户名">
+                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                </div>
+                <div class="row form-group has-feedback">
+                    <label class="control-label" for="telephone">
+                        <small>手机号码</small>
+                    </label>
+                    <input type="text" id="telephone" name="telephone" class="form-control input-lg"
+                           placeholder="预留手机号码"
+                           ng-model="user.telephone" required requiredmsg="请输入手机号码"
+                           dir-range="10000000000,19999999999" dirrangemsg="手机号码格式错误"
+                           dir-directive-ext/>
+                    <span class="glyphicon glyphicon-earphone form-control-feedback"></span>
+                </div>
+                <div class="row form-group has-feedback">
+                    <label class="control-label" for="telcode">
+                        <small>验证码</small>
+                    </label>
+                    <div>
+                        <div class="col-md-6 pl-0">
+                            <input type="text" name="telcode" id="telcode" class="form-control input-lg" maxlength="6"
+                                   ng-model="user.telcode" required placeholder="短信验证码"
+                                   requiredmsg="请输入手机验证码"
+                                   dir-directive-ext>
+                        </div>
+                        <div class="col-md-6 pt-5">
+                            <button type="button" ng-if="code==0" class="btn btn-link font-13" ng-click="getTelCode()">
+                                免费获取验证码
+                            </button>
+                            <div class="font-13 pt-5" ng-if="code>0">
+                                <span class="font-gray font-bold">发送成功 </span>
+                                <span class="font-red font-bold" ng-bind="telcodeTimeout"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group" ng-show="error">
+                    <span class="font-red font-bold" ng-bind="error"></span>
+                </div>
+                <div class="row form-group text-center">
+                    <button type="submit" class="btn btn-hls btn-block btn-lg"
+                            ng-click="submitForm(passResetForm.$invalid)">
+                        重置密码
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

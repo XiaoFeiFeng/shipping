@@ -1,0 +1,43 @@
+<div class="container" ng-controller="newsNoticeCtrl">
+    <div class="rew">
+
+        <div class=" ml-15 mt-30 col-md-3">
+            <div class="pv-10 font-18 font-bold " style=" border-bottom: 1px dashed #333;text-align:center">
+                易联公告
+            </div>
+            <div class="nav lisebs">
+                <ul role="menu" class="mv-20" >
+                    <li class="font-14 pv-5 margin-10" > <a  href="#/news/index" style="color: #000" href="#/news/index"> 新闻质讯</a></li>
+                    <li class="font-14 pv-5 margin-10" style="background: #122b87;">
+                        <a  style="color: #FFFFFF;" href="#/news/notice"> 易联公告</a>
+                    </li>
+                </ul>
+            </div>
+            <div style="width: 257px;margin-top: 20px;">
+                <img src="/img/publicity-b.jpg" style="width: 100%; height: 100%;  margin-bottom: 20px;"/>
+                <img src="/img/publicity-c.jpg" style="width: 100%; height: 100%;"/>
+
+            </div>
+
+
+        </div>
+
+        <div class="col-md-8 ml-30 mt-10">
+            <div  class=" mt-30 " style=" height: 180px;"><img src="/img/banner.jpg" style="width: 100%; height: 100%"></div>
+            <table class="table text-left border-0 ">
+                <tr class="x-tr">
+                    <th colspan="2">易联公告</th>
+                </tr>
+                <tr class="new_bg font-13 content" style=" border-bottom: 1px dashed #dddddd; line-height: 25px" ng-repeat="item in items.data" ng-click="new_details(item._id.$id)">
+                    <td width="80%" class="content"><span ng-bind="item.title"></span></td>
+                    <td><span class="font-gray" ng-bind="getDate(item.created_time)"></span></td>
+                </tr>
+            </table>
+            <div>
+                <hls-pagination total-items="totalItems" ng-model="currentPage" class="pagination-sm"
+                                page-size="pageSize" ng-change="pageChange()"></hls-pagination>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="box" style="border:0px;" ng-controller="merchantAuditPersonalCtrl">
+    <div class="box-header">
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-tab ph-20 active" ng-click="initGridData(0)">
+                <input type="radio" id="audit_all" name="orderstate" value="0"/>待审核
+            </label>
+            <label class="btn btn-tab ph-20" ng-click="initGridData(1)">
+                <input type="radio" id="audit_pass" name="orderstate" value="1"/>已通过
+            </label>
+            <label class="btn btn-tab ph-20" ng-click="initGridData(-1)">
+                <input type="radio" id="audit_deny" name="orderstate" value="-1"/>已拒绝
+            </label>
+        </div>
+    </div>
+    <div class="box-body">
+        <hls-grid grid-options="gridOptions"></hls-grid>
+    </div>
+    <div class="box-footer">
+        <hls-pagination total-items="totalItems" ng-model="currentPage" class="pagination-sm"
+                        page-size="pageSize" ng-change="pageChange()"></hls-pagination>
+    </div>
+</div>

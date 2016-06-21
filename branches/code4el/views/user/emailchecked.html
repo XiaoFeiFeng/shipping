@@ -1,0 +1,45 @@
+<div ng-controller="userEmailCheckedCtrl">
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1">
+            <a href="/">
+                <img src="img/logo.png" class="yilian"/>
+            </a>
+        </div>
+        <div class="col-md-2 form-title">邮箱验证</div>
+    </div>
+    <div class="row mt-20 text-left">
+        <div class="col-md-4 col-md-offset-4 form-border ph-30">
+            <div class="fl-bun">
+                <a href="/" class="btn btn-hls btn-xs">返回首页</a>
+            </div>
+
+            <div class="row pv-10">
+                <div class="col-md-4 text-right">
+                    <label class="control-label">
+                        <small>用户名：</small>
+                    </label>
+                </div>
+                <div class="col-md-8">
+                    <span class="font-red" ng-bind="user.name"></span>
+                </div>
+            </div>
+            <div class="row pv-10">
+                <div class="col-md-4 text-right">
+                    <label class="control-label">
+                        <small>邮箱地址：</small>
+                    </label>
+                </div>
+                <div class="col-md-8">
+                    <span class="font-red" ng-bind="user.email"></span>
+                </div>
+            </div>
+            <div class="row form-group text-center pt-25">
+                <button type="submit" class="btn btn-hls"
+                        ng-click="submitForm()">
+                    确认
+                </button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,149 @@
+<div class="container" ng-controller="orderDetailCtrl">
+    <div class="nav-title text-left ">
+        所在位置 - <a href="#/myel/index" class="font-orange">我的易联</a> - <a href="#/order/myorder" class="font-orange">
+        我的订单</a> - 订单详情
+    </div>
+    <div class="row mt-20 font-13">
+        <div class="col-md-2">
+            <hls-include url="'views/myel/menu.html'"/>
+        </div>
+        <div class="col-md-9 ml-20 text-left border-ccc">
+            <div class="row pv-10 border-bottom-ccc">
+                <div class="col-md-4">
+                    <span>订单编号：</span>
+                    <strong class="font-red pl-15" ng-bind="order.code">包裹</strong>
+                </div>
+                <div class="col-md-2">
+                    <span>物品类型：</span>
+                    <strong class="font-red pl-15">包裹</strong>
+                </div>
+                <div class="col-md-2">
+                    <span>重量：</span>
+                    <strong class="font-red pl-15" ng-bind="order.weight+' KG'"></strong>
+                </div>
+                <div class="col-md-4">
+                    <span>渠道：</span>
+                    <strong class="font-red pl-15" ng-bind="order.transportWayCName"></strong>
+                </div>
+            </div>
+            <div class="row pv-10 border-bottom-ccc">
+                <div class="col-md-5">
+                    <div class="pv-10">
+                        <span ng-bind="order.from.name">
+                        </span>
+                        <abbr class="ml-15" title="电话号码"><i class="fa fa-phone"> </i> </abbr>
+                        <span ng-bind="order.from.tel"></span>
+                    </div>
+                    <div class="pv-10">
+                        <span ng-bind="order.from.address"></span>
+                    </div>
+                    <div class="pv-10">
+                        <span ng-bind="order.from.zip"></span>
+                    </div>
+                </div>
+                <div class="col-md-2 mt-30 pt-15">
+                    <i class="fa fa-long-arrow-right font-22"> </i>
+                </div>
+                <div class="col-md-5">
+                    <div class="col-md-12 pv-10">
+                        <span ng-bind="order.to.name">
+                        </span>
+                        <abbr class="ml-15" title="电话号码"><i class="fa fa-phone"> </i> </abbr>
+                        <span ng-bind="order.to.tel"></span>
+                    </div>
+                    <div class="col-md-12 pv-10">
+                        <span ng-bind="order.to.address"></span>
+                    </div>
+                    <div class="col-md-12 pv-10">
+                        <span ng-bind="order.to.zip"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row pv-10 pl-15">
+                <strong> 海关申报信息</strong>
+            </div>
+            <div class="row pv-10 pl-15">
+                <div class="col-md-1 no-padding text-right">
+                    <span>物品类别：</span>
+                </div>
+                <div class="col-md-2">
+                    <span ng-bind="order.customsInfo.goodsType"></span>
+                </div>
+                <div class="col-md-1 no-padding text-right">
+                    <span>英文名：</span>
+                </div>
+                <div class="col-md-2">
+                    <span ng-bind="order.customsInfo.englishName"></span>
+                </div>
+                <div class="col-md-1 no-padding text-right">
+                    <span>中文名：</span>
+                </div>
+                <div class="col-md-2">
+                    <span ng-bind="order.customsInfo.chineseName"></span>
+                </div>
+                <div class="col-md-1 no-padding text-right">
+                    <span>总净重： </span>
+                </div>
+                <div class="col-md-2">
+                    <span ng-bind="order.customsInfo.weight"></span>KG
+                </div>
+            </div>
+            <div class="row pv-10 pl-15">
+                <div class="col-md-1 no-padding text-right">
+                    <span>申报数量：</span>
+                </div>
+                <div class="col-md-2">
+                    <span ng-bind="order.customsInfo.number"></span>
+                    <span ng-bind="order.customsInfo.unit"></span>
+                </div>
+                <div class="col-md-1 no-padding text-right">
+                    <span>申报单价：</span>
+                </div>
+                <div class="col-md-2">
+                    ￥<span ng-bind="order.customsInfo.price"></span>
+                </div>
+                <div class="col-md-1 no-padding text-right">
+                    <span>海关编号：</span>
+                </div>
+                <div class="col-md-2">
+                    <span ng-bind="order.customsInfo.code"></span>
+                </div>
+            </div>
+            <div class="row pv-10 pl-15 border-bottom-ccc">
+                <div class="col-md-1 no-padding text-right">
+                    <span> 留言：</span>
+                </div>
+                <div class="col-md-7">
+                    <span ng-bind="order.message"></span>
+                </div>
+            </div>
+            <div class="row pv-10 pl-15">
+                <strong> 运单追踪信息</strong>
+            </div>
+            <div class="row pv-10 pl-15" ng-show="!order.tracks||order.tracks.length==0">
+                <div class="col-md-12">
+                    <span>暂无</span>
+                </div>
+            </div>
+            <div class="row pv-10 pl-15">
+                <div class="col-md-12">
+                    <div class="row pv-10 ml-30" ng-repeat="track in order.tracks track by $index">
+                        <div class="pull-left mt-15 mr-20">
+                            <img src="img/favicon.png" height="20px" width="20px">
+                        </div>
+                        <div class="pull-left">
+                            <div class="pv-10">
+                                <span ng-class="{'font-gray':$index>0}" ng-bind="track.data"></span>
+                            </div>
+                            <div class="font-gray font-12">
+                                <span class="pr-15" ng-bind="getDate(track.time)"></span>
+                                <i ng-show="track.tel" class="fa fa-phone"> </i>
+                                <span ng-show="track.tel" ng-bind="track.tel"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

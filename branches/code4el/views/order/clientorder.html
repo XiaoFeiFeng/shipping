@@ -1,0 +1,41 @@
+<div class="myel" ng-controller="orderClientOrderCtrl">
+    <div class="nav-title">
+        所在位置 - <a href="#/myel/index" class="font-orange">我的易联</a> - 客户订单
+    </div>
+    <div class="row mt-20 font-13">
+        <div class="col-md-2">
+            <hls-include url="'views/myel/menu.html'"/>
+        </div>
+        <div class="col-md-9 ml-20">
+            <div class="row mv-15">
+                <div class="col-md-8 text-left">
+                    <button type="button" class="btn btn-warning" ng-click="distributes()">
+                        <i class="fa fa-external-link"></i>
+                        <span>批量转送</span>
+                    </button>
+                    <button type="button" class="btn btn-warning">
+                        <i class="fa fa-car"></i>
+                        <span>批量处理</span>
+                    </button>
+                </div>
+                <div class="col-md-4 text-right pt-5">
+                    <div class="input-group pull-right">
+                        <input type="text" class="form-control input-md" placeholder="输入订单号或手机号" ng-model="searchValue">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default btn-md" ng-click="search()">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <hls-grid grid-options="gridOptions"></hls-grid>
+            </div>
+            <div class="row text-center">
+                <hls-pagination total-items="totalItems" ng-model="currentPage" class="pagination-sm"
+                                page-size="pageSize" ng-change="pageChange()"></hls-pagination>
+            </div>
+        </div>
+    </div>
+</div>
